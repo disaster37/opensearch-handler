@@ -4,8 +4,7 @@ go 1.20
 
 require (
 	github.com/disaster37/generic-objectmatcher v1.0.2
-	github.com/disaster37/opensearch/v2 v2.0.0-20240116131842-13f7974163ba
-	github.com/elastic/go-elasticsearch/v8 v8.11.1
+	github.com/disaster37/opensearch/v2 v2.0.0
 	github.com/elastic/go-ucfg v0.8.6
 	github.com/google/go-cmp v0.6.0
 	github.com/jarcoal/httpmock v1.3.1
@@ -20,7 +19,6 @@ require (
 	emperror.dev/errors v0.8.1 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/disaster37/k8s-objectmatcher v1.8.2 // indirect
-	github.com/elastic/elastic-transport-go/v8 v8.3.0 // indirect
 	github.com/evanphx/json-patch v5.6.0+incompatible // indirect
 	github.com/go-logr/logr v1.3.0 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
