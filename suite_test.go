@@ -1,7 +1,6 @@
 package opensearchhandler
 
 import (
-	"net/http"
 	"testing"
 
 	"github.com/disaster37/opensearch/v2"
@@ -23,14 +22,12 @@ func TestOpensearchHandlerSuite(t *testing.T) {
 
 func (t *OpensearchHandlerTestSuite) SetupTest() {
 
-	httpClient := http.DefaultClient
-	httpClient.Transport = httpmock.DefaultTransport
-	httpmock.Activate()
-
-	client, err := opensearch.NewClient(opensearch.SetURL(baseURL), opensearch.SetHttpClient(httpClient), opensearch.SetHealthcheck(false), opensearch.SetSniff(false))
+	client, err := opensearch.NewClient(opensearch.SetURL(baseURL), opensearch.SetTransport(httpmock.DefaultTransport), opensearch.SetHealthcheck(false), opensearch.SetSniff(false))
 	if err != nil {
 		panic(err)
 	}
+
+	httpmock.Activate()
 
 	t.opensearchHandler = &OpensearchHandlerImpl{
 		client: client,
