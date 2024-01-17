@@ -15,6 +15,10 @@ github.com/disaster37/opensearch/v2 v2.0.2 h1:/Q/r/MwOoDXgRnST+wUWIMyEgjx3T9bvha
 github.com/disaster37/opensearch/v2 v2.0.2/go.mod h1:q7dhuUH19Rn4S1Y3/ntiUZnXQ0I4SnU9pSeAySWnCmw=
 github.com/disaster37/opensearch/v2 v2.0.3 h1:qAxeMrmMvlzT1kUMVw6bLDKAse7Ym7ursWdIQXgv7uo=
 github.com/disaster37/opensearch/v2 v2.0.3/go.mod h1:q7dhuUH19Rn4S1Y3/ntiUZnXQ0I4SnU9pSeAySWnCmw=
+github.com/disaster37/opensearch/v2 v2.0.4-0.20240117154021-f7378c3e23c3 h1:ycb3HBwMoDo75mPNqN6iWDjb5EOpZzitw6nBrGXv3Qo=
+github.com/disaster37/opensearch/v2 v2.0.4-0.20240117154021-f7378c3e23c3/go.mod h1:q7dhuUH19Rn4S1Y3/ntiUZnXQ0I4SnU9pSeAySWnCmw=
+github.com/disaster37/opensearch/v2 v2.0.4-0.20240117160907-a5455a8da2e6 h1:bVKhfwvSmyb8MLO2wvwcT5awVnEjKkdgIuzI1+sv0Ns=
+github.com/disaster37/opensearch/v2 v2.0.4-0.20240117160907-a5455a8da2e6/go.mod h1:q7dhuUH19Rn4S1Y3/ntiUZnXQ0I4SnU9pSeAySWnCmw=
 github.com/docopt/docopt-go v0.0.0-20180111231733-ee0de3bc6815/go.mod h1:WwZ+bS3ebgob9U8Nd0kOddGdZWjyMGR8Wziv+TBNwSE=
 github.com/elastic/go-ucfg v0.8.6 h1:stUeyh2goTgGX+/wb9gzKvTv0YB0231LTpKUgCKj4U0=
 github.com/elastic/go-ucfg v0.8.6/go.mod h1:4E8mPOLSUV9hQ7sgLEJ4bvt0KhMuDJa8joDT2QGAEKA=

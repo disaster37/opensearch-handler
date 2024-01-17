@@ -34,6 +34,12 @@ type OpensearchHandler interface {
 	IngestPipelineGet(name string) (pipeline *opensearch.IngestGetPipeline, err error)
 	IngestPipelineDiff(actualObject, expectedObject, originalObject *opensearch.IngestGetPipeline) (patchResult *patch.PatchResult, err error)
 
+	// Role scope
+	RoleUpdate(name string, role *opensearch.SecurityRole) (err error)
+	RoleDelete(name string) (err error)
+	RoleGet(name string) (role *opensearch.SecurityRole, err error)
+	RoleDiff(actualObject, expectedObject, originalObject *opensearch.SecurityRole) (patchResult *patch.PatchResult, err error)
+
 	// Cluster scope
 	ClusterHealth() (health *opensearch.ClusterHealthResponse, err error)
 
