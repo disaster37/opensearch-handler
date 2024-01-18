@@ -287,6 +287,64 @@ func (mr *MockOpensearchHandlerMockRecorder) RoleGet(arg0 any) *gomock.Call {
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "RoleGet", reflect.TypeOf((*MockOpensearchHandler)(nil).RoleGet), arg0)
 }
 
+// RoleMappingDelete mocks base method.
+func (m *MockOpensearchHandler) RoleMappingDelete(arg0 string) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "RoleMappingDelete", arg0)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// RoleMappingDelete indicates an expected call of RoleMappingDelete.
+func (mr *MockOpensearchHandlerMockRecorder) RoleMappingDelete(arg0 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "RoleMappingDelete", reflect.TypeOf((*MockOpensearchHandler)(nil).RoleMappingDelete), arg0)
+}
+
+// RoleMappingDiff mocks base method.
+func (m *MockOpensearchHandler) RoleMappingDiff(arg0, arg1, arg2 *opensearch.SecurityRoleMapping) (*patch.PatchResult, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "RoleMappingDiff", arg0, arg1, arg2)
+	ret0, _ := ret[0].(*patch.PatchResult)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// RoleMappingDiff indicates an expected call of RoleMappingDiff.
+func (mr *MockOpensearchHandlerMockRecorder) RoleMappingDiff(arg0, arg1, arg2 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "RoleMappingDiff", reflect.TypeOf((*MockOpensearchHandler)(nil).RoleMappingDiff), arg0, arg1, arg2)
+}
+
+// RoleMappingGet mocks base method.
+func (m *MockOpensearchHandler) RoleMappingGet(arg0 string) (*opensearch.SecurityRoleMapping, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "RoleMappingGet", arg0)
+	ret0, _ := ret[0].(*opensearch.SecurityRoleMapping)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// RoleMappingGet indicates an expected call of RoleMappingGet.
+func (mr *MockOpensearchHandlerMockRecorder) RoleMappingGet(arg0 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "RoleMappingGet", reflect.TypeOf((*MockOpensearchHandler)(nil).RoleMappingGet), arg0)
+}
+
+// RoleMappingUpdate mocks base method.
+func (m *MockOpensearchHandler) RoleMappingUpdate(arg0 string, arg1 *opensearch.SecurityRoleMapping) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "RoleMappingUpdate", arg0, arg1)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// RoleMappingUpdate indicates an expected call of RoleMappingUpdate.
+func (mr *MockOpensearchHandlerMockRecorder) RoleMappingUpdate(arg0, arg1 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "RoleMappingUpdate", reflect.TypeOf((*MockOpensearchHandler)(nil).RoleMappingUpdate), arg0, arg1)
+}
+
 // RoleUpdate mocks base method.
 func (m *MockOpensearchHandler) RoleUpdate(arg0 string, arg1 *opensearch.SecurityRole) error {
 	m.ctrl.T.Helper()
@@ -369,4 +427,62 @@ func (m *MockOpensearchHandler) SnapshotRepositoryUpdate(arg0 string, arg1 *open
 func (mr *MockOpensearchHandlerMockRecorder) SnapshotRepositoryUpdate(arg0, arg1 any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SnapshotRepositoryUpdate", reflect.TypeOf((*MockOpensearchHandler)(nil).SnapshotRepositoryUpdate), arg0, arg1)
+}
+
+// UserDelete mocks base method.
+func (m *MockOpensearchHandler) UserDelete(arg0 string) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "UserDelete", arg0)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// UserDelete indicates an expected call of UserDelete.
+func (mr *MockOpensearchHandlerMockRecorder) UserDelete(arg0 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UserDelete", reflect.TypeOf((*MockOpensearchHandler)(nil).UserDelete), arg0)
+}
+
+// UserDiff mocks base method.
+func (m *MockOpensearchHandler) UserDiff(arg0, arg1, arg2 *opensearch.SecurityPutUser) (*patch.PatchResult, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "UserDiff", arg0, arg1, arg2)
+	ret0, _ := ret[0].(*patch.PatchResult)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// UserDiff indicates an expected call of UserDiff.
+func (mr *MockOpensearchHandlerMockRecorder) UserDiff(arg0, arg1, arg2 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UserDiff", reflect.TypeOf((*MockOpensearchHandler)(nil).UserDiff), arg0, arg1, arg2)
+}
+
+// UserGet mocks base method.
+func (m *MockOpensearchHandler) UserGet(arg0 string) (*opensearch.SecurityUser, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "UserGet", arg0)
+	ret0, _ := ret[0].(*opensearch.SecurityUser)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// UserGet indicates an expected call of UserGet.
+func (mr *MockOpensearchHandlerMockRecorder) UserGet(arg0 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UserGet", reflect.TypeOf((*MockOpensearchHandler)(nil).UserGet), arg0)
+}
+
+// UserUpdate mocks base method.
+func (m *MockOpensearchHandler) UserUpdate(arg0 string, arg1 *opensearch.SecurityPutUser) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "UserUpdate", arg0, arg1)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// UserUpdate indicates an expected call of UserUpdate.
+func (mr *MockOpensearchHandlerMockRecorder) UserUpdate(arg0, arg1 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "UserUpdate", reflect.TypeOf((*MockOpensearchHandler)(nil).UserUpdate), arg0, arg1)
 }
