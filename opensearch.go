@@ -40,6 +40,17 @@ type OpensearchHandler interface {
 	RoleGet(name string) (role *opensearch.SecurityRole, err error)
 	RoleDiff(actualObject, expectedObject, originalObject *opensearch.SecurityRole) (patchResult *patch.PatchResult, err error)
 
+	// Role mapping scope
+	RoleMappingUpdate(name string, roleMapping *opensearch.SecurityRoleMapping) (err error)
+	RoleMappingDelete(name string) (err error)
+	RoleMappingGet(name string) (roleMapping *opensearch.SecurityRoleMapping, err error)
+	RoleMappingDiff(actualObject, expectedObject, originalObject *opensearch.SecurityRoleMapping) (patchResult *patch.PatchResult, err error)
+
+	UserUpdate(name string, user *opensearch.SecurityPutUser) (err error)
+	UserDelete(name string) (err error)
+	UserGet(name string) (user *opensearch.SecurityUser, err error)
+	UserDiff(actualObject, expectedObject, originalObject *opensearch.SecurityPutUser) (patchResult *patch.PatchResult, err error)
+
 	// Cluster scope
 	ClusterHealth() (health *opensearch.ClusterHealthResponse, err error)
 

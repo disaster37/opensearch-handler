@@ -4,13 +4,11 @@ go 1.20
 
 require (
 	github.com/disaster37/generic-objectmatcher v1.0.2
-	github.com/disaster37/opensearch/v2 v2.0.4-0.20240117160907-a5455a8da2e6
+	github.com/disaster37/opensearch/v2 v2.0.4-0.20240118163701-9e5c91e730b1
 	github.com/elastic/go-ucfg v0.8.6
 	github.com/google/go-cmp v0.6.0
 	github.com/jarcoal/httpmock v1.3.1
 	github.com/json-iterator/go v1.1.12
-	github.com/opensearch-project/opensearch-go v1.1.0
-	github.com/opensearch-project/opensearch-go/v3 v3.0.0
 	github.com/pkg/errors v0.9.1
 	github.com/sirupsen/logrus v1.9.3
 	github.com/stretchr/testify v1.8.4
