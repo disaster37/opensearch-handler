@@ -243,6 +243,64 @@ func (mr *MockOpensearchHandlerMockRecorder) IngestPipelineUpdate(arg0, arg1 any
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "IngestPipelineUpdate", reflect.TypeOf((*MockOpensearchHandler)(nil).IngestPipelineUpdate), arg0, arg1)
 }
 
+// RoleDelete mocks base method.
+func (m *MockOpensearchHandler) RoleDelete(arg0 string) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "RoleDelete", arg0)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// RoleDelete indicates an expected call of RoleDelete.
+func (mr *MockOpensearchHandlerMockRecorder) RoleDelete(arg0 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "RoleDelete", reflect.TypeOf((*MockOpensearchHandler)(nil).RoleDelete), arg0)
+}
+
+// RoleDiff mocks base method.
+func (m *MockOpensearchHandler) RoleDiff(arg0, arg1, arg2 *opensearch.SecurityRole) (*patch.PatchResult, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "RoleDiff", arg0, arg1, arg2)
+	ret0, _ := ret[0].(*patch.PatchResult)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// RoleDiff indicates an expected call of RoleDiff.
+func (mr *MockOpensearchHandlerMockRecorder) RoleDiff(arg0, arg1, arg2 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "RoleDiff", reflect.TypeOf((*MockOpensearchHandler)(nil).RoleDiff), arg0, arg1, arg2)
+}
+
+// RoleGet mocks base method.
+func (m *MockOpensearchHandler) RoleGet(arg0 string) (*opensearch.SecurityRole, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "RoleGet", arg0)
+	ret0, _ := ret[0].(*opensearch.SecurityRole)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// RoleGet indicates an expected call of RoleGet.
+func (mr *MockOpensearchHandlerMockRecorder) RoleGet(arg0 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "RoleGet", reflect.TypeOf((*MockOpensearchHandler)(nil).RoleGet), arg0)
+}
+
+// RoleUpdate mocks base method.
+func (m *MockOpensearchHandler) RoleUpdate(arg0 string, arg1 *opensearch.SecurityRole) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "RoleUpdate", arg0, arg1)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// RoleUpdate indicates an expected call of RoleUpdate.
+func (mr *MockOpensearchHandlerMockRecorder) RoleUpdate(arg0, arg1 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "RoleUpdate", reflect.TypeOf((*MockOpensearchHandler)(nil).RoleUpdate), arg0, arg1)
+}
+
 // SetLogger mocks base method.
 func (m *MockOpensearchHandler) SetLogger(arg0 *logrus.Entry) {
 	m.ctrl.T.Helper()
