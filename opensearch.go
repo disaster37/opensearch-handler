@@ -35,21 +35,34 @@ type OpensearchHandler interface {
 	IngestPipelineDiff(actualObject, expectedObject, originalObject *opensearch.IngestGetPipeline) (patchResult *patch.PatchResult, err error)
 
 	// Role scope
-	RoleUpdate(name string, role *opensearch.SecurityRole) (err error)
+	RoleUpdate(name string, role *opensearch.SecurityPutRole) (err error)
 	RoleDelete(name string) (err error)
 	RoleGet(name string) (role *opensearch.SecurityRole, err error)
-	RoleDiff(actualObject, expectedObject, originalObject *opensearch.SecurityRole) (patchResult *patch.PatchResult, err error)
+	RoleDiff(actualObject, expectedObject, originalObject *opensearch.SecurityPutRole) (patchResult *patch.PatchResult, err error)
 
 	// Role mapping scope
-	RoleMappingUpdate(name string, roleMapping *opensearch.SecurityRoleMapping) (err error)
+	RoleMappingUpdate(name string, roleMapping *opensearch.SecurityPutRoleMapping) (err error)
 	RoleMappingDelete(name string) (err error)
 	RoleMappingGet(name string) (roleMapping *opensearch.SecurityRoleMapping, err error)
-	RoleMappingDiff(actualObject, expectedObject, originalObject *opensearch.SecurityRoleMapping) (patchResult *patch.PatchResult, err error)
+	RoleMappingDiff(actualObject, expectedObject, originalObject *opensearch.SecurityPutRoleMapping) (patchResult *patch.PatchResult, err error)
 
+	// User scope
 	UserUpdate(name string, user *opensearch.SecurityPutUser) (err error)
 	UserDelete(name string) (err error)
 	UserGet(name string) (user *opensearch.SecurityUser, err error)
 	UserDiff(actualObject, expectedObject, originalObject *opensearch.SecurityPutUser) (patchResult *patch.PatchResult, err error)
+
+	// Action groups scope
+	ActionGroupUpdate(name string, actionGroup *opensearch.SecurityPutActionGroup) (err error)
+	ActionGroupDelete(name string) (err error)
+	ActionGroupGet(name string) (actionGroup *opensearch.SecurityActionGroup, err error)
+	ActionGroupDiff(actualObject, expectedObject, originalObject *opensearch.SecurityPutActionGroup) (patchResult *patch.PatchResult, err error)
+
+	// Tenanats scope
+	TenantUpdate(name string, tenant *opensearch.SecurityPutTenant) (err error)
+	TenantDelete(name string) (err error)
+	TenantGet(name string) (tenant *opensearch.SecurityTenant, err error)
+	TenantDiff(actualObject, expectedObject, originalObject *opensearch.SecurityPutTenant) (patchResult *patch.PatchResult, err error)
 
 	// Cluster scope
 	ClusterHealth() (health *opensearch.ClusterHealthResponse, err error)

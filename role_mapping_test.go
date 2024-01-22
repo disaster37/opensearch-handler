@@ -16,7 +16,9 @@ func (t *OpensearchHandlerTestSuite) TestRoleMappingGet() {
 
 	result := make(opensearch.SecurityGetRoleMappingResponse)
 	roleMapping := &opensearch.SecurityRoleMapping{
-		BackendRoles: []string{"ad_group"},
+		SecurityPutRoleMapping: opensearch.SecurityPutRoleMapping{
+			BackendRoles: []string{"ad_group"},
+		},
 	}
 	result["test"] = *roleMapping
 
@@ -59,7 +61,7 @@ func (t *OpensearchHandlerTestSuite) TestRoleMappingDelete() {
 }
 
 func (t *OpensearchHandlerTestSuite) TestRoleMappingUpdate() {
-	roleMapping := &opensearch.SecurityRoleMapping{
+	roleMapping := &opensearch.SecurityPutRoleMapping{
 		BackendRoles: []string{"ad_group"},
 	}
 
@@ -80,9 +82,9 @@ func (t *OpensearchHandlerTestSuite) TestRoleMappingUpdate() {
 }
 
 func (t *OpensearchHandlerTestSuite) TestRoleMappingDiff() {
-	var actual, expected, original *opensearch.SecurityRoleMapping
+	var actual, expected, original *opensearch.SecurityPutRoleMapping
 
-	expected = &opensearch.SecurityRoleMapping{
+	expected = &opensearch.SecurityPutRoleMapping{
 		BackendRoles: []string{"ad_group"},
 	}
 
@@ -96,7 +98,7 @@ func (t *OpensearchHandlerTestSuite) TestRoleMappingDiff() {
 	assert.Equal(t.T(), expected, diff.Patched)
 
 	// When role mapping is the same
-	actual = &opensearch.SecurityRoleMapping{
+	actual = &opensearch.SecurityPutRoleMapping{
 		BackendRoles: []string{"ad_group"},
 	}
 	diff, err = t.opensearchHandler.RoleMappingDiff(actual, expected, actual)
@@ -116,16 +118,16 @@ func (t *OpensearchHandlerTestSuite) TestRoleMappingDiff() {
 	assert.Equal(t.T(), expected, diff.Patched)
 
 	// When Elastic add default value
-	actual = &opensearch.SecurityRoleMapping{
-		BackendRoles: []string{"ad_group"},
-		Hidden:       true,
+	actual = &opensearch.SecurityPutRoleMapping{
+		BackendRoles:    []string{"ad_group"},
+		AndBackendRoles: []string{"test"},
 	}
 
-	expected = &opensearch.SecurityRoleMapping{
+	expected = &opensearch.SecurityPutRoleMapping{
 		BackendRoles: []string{"ad_group"},
 	}
 
-	original = &opensearch.SecurityRoleMapping{
+	original = &opensearch.SecurityPutRoleMapping{
 		BackendRoles: []string{"ad_group"},
 	}
 

@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	github.com/disaster37/generic-objectmatcher v1.0.2
-	github.com/disaster37/opensearch/v2 v2.0.4-0.20240118163701-9e5c91e730b1
+	github.com/disaster37/opensearch/v2 v2.0.4-0.20240122100609-d2f551e5af8b
 	github.com/elastic/go-ucfg v0.8.6
 	github.com/google/go-cmp v0.6.0
 	github.com/jarcoal/httpmock v1.3.1
@@ -40,9 +40,9 @@ require (
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	k8s.io/apimachinery v0.25.4 // indirect
-	k8s.io/klog/v2 v2.70.1 // indirect
+	k8s.io/klog/v2 v2.80.1 // indirect
 	k8s.io/kube-openapi v0.0.0-20220803162953-67bda5d908f1 // indirect
-	k8s.io/utils v0.0.0-20220728103510-ee6ede2d64ed // indirect
+	k8s.io/utils v0.0.0-20240102154912-e7106e64919e // indirect
 	sigs.k8s.io/json v0.0.0-20220713155537-f223a00ba0e2 // indirect
 	sigs.k8s.io/structured-merge-diff/v4 v4.2.3 // indirect
 	sigs.k8s.io/yaml v1.2.0 // indirect

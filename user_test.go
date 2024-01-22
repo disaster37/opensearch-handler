@@ -8,6 +8,7 @@ import (
 	"github.com/disaster37/opensearch/v2"
 	"github.com/jarcoal/httpmock"
 	"github.com/stretchr/testify/assert"
+	"k8s.io/utils/ptr"
 )
 
 var urlUser = fmt.Sprintf("%s/_plugins/_security/api/internalusers/test", baseURL)
@@ -16,7 +17,9 @@ func (t *OpensearchHandlerTestSuite) TestUserGet() {
 
 	result := make(opensearch.SecurityGetUserResponse)
 	user := &opensearch.SecurityUser{
-		SecurityRoles: []string{"kibana_user"},
+		SecurityUserBase: opensearch.SecurityUserBase{
+			SecurityRoles: []string{"kibana_user"},
+		},
 	}
 	result["test"] = *user
 
@@ -60,7 +63,7 @@ func (t *OpensearchHandlerTestSuite) TestUserDelete() {
 
 func (t *OpensearchHandlerTestSuite) TestUserUpdate() {
 	user := &opensearch.SecurityPutUser{
-		SecurityUser: opensearch.SecurityUser{
+		SecurityUserBase: opensearch.SecurityUserBase{
 			SecurityRoles: []string{"kibana_user"},
 		},
 		Password: "password",
@@ -86,7 +89,8 @@ func (t *OpensearchHandlerTestSuite) TestUserDiff() {
 	var actual, expected, original *opensearch.SecurityPutUser
 
 	expected = &opensearch.SecurityPutUser{
-		SecurityUser: opensearch.SecurityUser{
+
+		SecurityUserBase: opensearch.SecurityUserBase{
 			SecurityRoles: []string{"kibana_user"},
 		},
 		Password: "password",
@@ -103,7 +107,7 @@ func (t *OpensearchHandlerTestSuite) TestUserDiff() {
 
 	// When user is the same
 	actual = &opensearch.SecurityPutUser{
-		SecurityUser: opensearch.SecurityUser{
+		SecurityUserBase: opensearch.SecurityUserBase{
 			SecurityRoles: []string{"kibana_user"},
 		},
 		Password: "password",
@@ -126,22 +130,22 @@ func (t *OpensearchHandlerTestSuite) TestUserDiff() {
 
 	// When Elastic add default value
 	actual = &opensearch.SecurityPutUser{
-		SecurityUser: opensearch.SecurityUser{
+		SecurityUserBase: opensearch.SecurityUserBase{
 			SecurityRoles: []string{"kibana_user"},
-			Hidden:        true,
+			Description:   ptr.To[string]("test"),
 		},
 		Password: "password",
 	}
 
 	expected = &opensearch.SecurityPutUser{
-		SecurityUser: opensearch.SecurityUser{
+		SecurityUserBase: opensearch.SecurityUserBase{
 			SecurityRoles: []string{"kibana_user"},
 		},
 		Password: "password",
 	}
 
 	original = &opensearch.SecurityPutUser{
-		SecurityUser: opensearch.SecurityUser{
+		SecurityUserBase: opensearch.SecurityUserBase{
 			SecurityRoles: []string{"kibana_user"},
 		},
 		Password: "password",

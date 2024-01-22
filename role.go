@@ -10,7 +10,7 @@ import (
 )
 
 // RoleUpdate permit to update role
-func (h *OpensearchHandlerImpl) RoleUpdate(name string, role *opensearch.SecurityRole) (err error) {
+func (h *OpensearchHandlerImpl) RoleUpdate(name string, role *opensearch.SecurityPutRole) (err error) {
 
 	if _, err = h.client.SecurityPutRole(name).Body(role).Do(context.Background()); err != nil {
 		return errors.Wrapf(err, "Error when update role '%s'", name)
@@ -49,7 +49,7 @@ func (h *OpensearchHandlerImpl) RoleGet(name string) (role *opensearch.SecurityR
 }
 
 // RoleDiff permit to check if 2 role are the same
-func (h *OpensearchHandlerImpl) RoleDiff(actualObject, expectedObject, originalObject *opensearch.SecurityRole) (patchResult *patch.PatchResult, err error) {
+func (h *OpensearchHandlerImpl) RoleDiff(actualObject, expectedObject, originalObject *opensearch.SecurityPutRole) (patchResult *patch.PatchResult, err error) {
 	// If not yet exist
 	if actualObject == nil {
 		expected, err := jsonIterator.ConfigCompatibleWithStandardLibrary.Marshal(expectedObject)

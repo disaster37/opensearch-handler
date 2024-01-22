@@ -10,7 +10,7 @@ import (
 )
 
 // RoleMappingUpdate permit to create or update role mapping
-func (h *OpensearchHandlerImpl) RoleMappingUpdate(name string, roleMapping *opensearch.SecurityRoleMapping) (err error) {
+func (h *OpensearchHandlerImpl) RoleMappingUpdate(name string, roleMapping *opensearch.SecurityPutRoleMapping) (err error) {
 
 	if _, err = h.client.SecurityPutRoleMapping(name).Body(roleMapping).Do(context.Background()); err != nil {
 		return errors.Wrapf(err, "Error when update role mapping '%s'", name)
@@ -48,7 +48,7 @@ func (h *OpensearchHandlerImpl) RoleMappingGet(name string) (roleMapping *opense
 }
 
 // RoleMappingDiff permit to check if 2 role mapping are the same
-func (h *OpensearchHandlerImpl) RoleMappingDiff(actualObject, expectedObject, originalObject *opensearch.SecurityRoleMapping) (patchResult *patch.PatchResult, err error) {
+func (h *OpensearchHandlerImpl) RoleMappingDiff(actualObject, expectedObject, originalObject *opensearch.SecurityPutRoleMapping) (patchResult *patch.PatchResult, err error) {
 	// If not yet exist
 	if actualObject == nil {
 		expected, err := jsonIterator.ConfigCompatibleWithStandardLibrary.Marshal(expectedObject)

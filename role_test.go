@@ -8,6 +8,7 @@ import (
 	"github.com/disaster37/opensearch/v2"
 	"github.com/jarcoal/httpmock"
 	"github.com/stretchr/testify/assert"
+	"k8s.io/utils/ptr"
 )
 
 var urlRole = fmt.Sprintf("%s/_plugins/_security/api/roles/test", baseURL)
@@ -16,11 +17,13 @@ func (t *OpensearchHandlerTestSuite) TestRoleGet() {
 
 	result := make(map[string]opensearch.SecurityRole)
 	role := &opensearch.SecurityRole{
-		ClusterPermissions: []string{"all"},
-		IndexPermissions: []opensearch.SecurityIndexPermissions{
-			{
-				IndexPatterns:  []string{"logstash-*"},
-				AllowedActions: []string{"read"},
+		SecurityPutRole: opensearch.SecurityPutRole{
+			ClusterPermissions: []string{"all"},
+			IndexPermissions: []opensearch.SecurityIndexPermissions{
+				{
+					IndexPatterns:  []string{"logstash-*"},
+					AllowedActions: []string{"read"},
+				},
 			},
 		},
 	}
@@ -65,7 +68,7 @@ func (t *OpensearchHandlerTestSuite) TestRoleDelete() {
 }
 
 func (t *OpensearchHandlerTestSuite) TestRoleUpdate() {
-	role := &opensearch.SecurityRole{
+	role := &opensearch.SecurityPutRole{
 		ClusterPermissions: []string{"all"},
 		IndexPermissions: []opensearch.SecurityIndexPermissions{
 			{
@@ -92,9 +95,9 @@ func (t *OpensearchHandlerTestSuite) TestRoleUpdate() {
 }
 
 func (t *OpensearchHandlerTestSuite) TestRoleDiff() {
-	var actual, expected, original *opensearch.SecurityRole
+	var actual, expected, original *opensearch.SecurityPutRole
 
-	expected = &opensearch.SecurityRole{
+	expected = &opensearch.SecurityPutRole{
 		ClusterPermissions: []string{"all"},
 		IndexPermissions: []opensearch.SecurityIndexPermissions{
 			{
@@ -114,7 +117,7 @@ func (t *OpensearchHandlerTestSuite) TestRoleDiff() {
 	assert.Equal(t.T(), expected, diff.Patched)
 
 	// When role is the same
-	actual = &opensearch.SecurityRole{
+	actual = &opensearch.SecurityPutRole{
 		ClusterPermissions: []string{"all"},
 		IndexPermissions: []opensearch.SecurityIndexPermissions{
 			{
@@ -146,7 +149,7 @@ func (t *OpensearchHandlerTestSuite) TestRoleDiff() {
 	assert.Equal(t.T(), expected, diff.Patched)
 
 	// When elastic add default values
-	expected = &opensearch.SecurityRole{
+	expected = &opensearch.SecurityPutRole{
 		ClusterPermissions: []string{"all"},
 		IndexPermissions: []opensearch.SecurityIndexPermissions{
 			{
@@ -156,7 +159,7 @@ func (t *OpensearchHandlerTestSuite) TestRoleDiff() {
 		},
 	}
 
-	original = &opensearch.SecurityRole{
+	original = &opensearch.SecurityPutRole{
 		ClusterPermissions: []string{"all"},
 		IndexPermissions: []opensearch.SecurityIndexPermissions{
 			{
@@ -166,7 +169,7 @@ func (t *OpensearchHandlerTestSuite) TestRoleDiff() {
 		},
 	}
 
-	actual = &opensearch.SecurityRole{
+	actual = &opensearch.SecurityPutRole{
 		ClusterPermissions: []string{"all"},
 		IndexPermissions: []opensearch.SecurityIndexPermissions{
 			{
@@ -174,7 +177,7 @@ func (t *OpensearchHandlerTestSuite) TestRoleDiff() {
 				AllowedActions: []string{"read"},
 			},
 		},
-		Reserved: true,
+		Description: ptr.To[string]("test"),
 	}
 
 	diff, err = t.opensearchHandler.RoleDiff(actual, expected, original)
