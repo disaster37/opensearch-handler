@@ -64,6 +64,11 @@ type OpensearchHandler interface {
 	TenantGet(name string) (tenant *opensearch.SecurityTenant, err error)
 	TenantDiff(actualObject, expectedObject, originalObject *opensearch.SecurityPutTenant) (patchResult *patch.PatchResult, err error)
 
+	// Config scope
+	ConfigUpdate(config *opensearch.SecurityConfig) (err error)
+	ConfigGet() (config *opensearch.SecurityGetConfigResponse, err error)
+	ConfigDiff(actualObject, expectedObject, originalObject *opensearch.SecurityConfig) (patchResult *patch.PatchResult, err error)
+
 	// Cluster scope
 	ClusterHealth() (health *opensearch.ClusterHealthResponse, err error)
 
