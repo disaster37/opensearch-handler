@@ -32,7 +32,7 @@ func (t *OpensearchHandlerTestSuite) TestConfigGet() {
 		return resp, nil
 	})
 
-	resp, err := t.opensearchHandler.ConfigGet()
+	resp, err := t.opensearchHandler.SecurityConfigGet()
 	if err != nil {
 		t.Fail(err.Error())
 	}
@@ -40,7 +40,7 @@ func (t *OpensearchHandlerTestSuite) TestConfigGet() {
 
 	// When error
 	httpmock.RegisterResponder("GET", urlConfig, httpmock.NewErrorResponder(errors.New("fack error")))
-	_, err = t.opensearchHandler.ConfigGet()
+	_, err = t.opensearchHandler.SecurityConfigGet()
 	assert.Error(t.T(), err)
 }
 
@@ -60,14 +60,14 @@ func (t *OpensearchHandlerTestSuite) TestConfigUpdate() {
 		return resp, nil
 	})
 
-	err := t.opensearchHandler.ConfigUpdate(config)
+	err := t.opensearchHandler.SecurityConfigUpdate(config)
 	if err != nil {
 		t.Fail(err.Error())
 	}
 
 	// When error
 	httpmock.RegisterResponder("PUT", urlConfigUpdate, httpmock.NewErrorResponder(errors.New("fack error")))
-	err = t.opensearchHandler.ConfigUpdate(config)
+	err = t.opensearchHandler.SecurityConfigUpdate(config)
 	assert.Error(t.T(), err)
 }
 
@@ -83,7 +83,7 @@ func (t *OpensearchHandlerTestSuite) TestConfigDiff() {
 
 	// When config not exist yet
 	actual = nil
-	diff, err := t.opensearchHandler.ConfigDiff(actual, expected, nil)
+	diff, err := t.opensearchHandler.SecurityConfigDiff(actual, expected, nil)
 	if err != nil {
 		t.Fail(err.Error())
 	}
@@ -97,7 +97,7 @@ func (t *OpensearchHandlerTestSuite) TestConfigDiff() {
 			DoNotFailOnForbiddenEmpty: ptr.To[bool](true),
 		},
 	}
-	diff, err = t.opensearchHandler.ConfigDiff(actual, expected, actual)
+	diff, err = t.opensearchHandler.SecurityConfigDiff(actual, expected, actual)
 	if err != nil {
 		t.Fail(err.Error())
 	}
@@ -109,7 +109,7 @@ func (t *OpensearchHandlerTestSuite) TestConfigDiff() {
 		AnonymousAuthEnabled: ptr.To[bool](true),
 	}
 
-	diff, err = t.opensearchHandler.ConfigDiff(actual, expected, actual)
+	diff, err = t.opensearchHandler.SecurityConfigDiff(actual, expected, actual)
 	if err != nil {
 		t.Fail(err.Error())
 	}
@@ -139,7 +139,7 @@ func (t *OpensearchHandlerTestSuite) TestConfigDiff() {
 		},
 	}
 
-	diff, err = t.opensearchHandler.ConfigDiff(actual, expected, original)
+	diff, err = t.opensearchHandler.SecurityConfigDiff(actual, expected, original)
 	if err != nil {
 		t.Fail(err.Error())
 	}

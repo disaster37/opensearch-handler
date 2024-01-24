@@ -185,50 +185,6 @@ func (mr *MockOpensearchHandlerMockRecorder) ComponentTemplateUpdate(arg0, arg1 
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ComponentTemplateUpdate", reflect.TypeOf((*MockOpensearchHandler)(nil).ComponentTemplateUpdate), arg0, arg1)
 }
 
-// ConfigDiff mocks base method.
-func (m *MockOpensearchHandler) ConfigDiff(arg0, arg1, arg2 *opensearch.SecurityConfig) (*patch.PatchResult, error) {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "ConfigDiff", arg0, arg1, arg2)
-	ret0, _ := ret[0].(*patch.PatchResult)
-	ret1, _ := ret[1].(error)
-	return ret0, ret1
-}
-
-// ConfigDiff indicates an expected call of ConfigDiff.
-func (mr *MockOpensearchHandlerMockRecorder) ConfigDiff(arg0, arg1, arg2 any) *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ConfigDiff", reflect.TypeOf((*MockOpensearchHandler)(nil).ConfigDiff), arg0, arg1, arg2)
-}
-
-// ConfigGet mocks base method.
-func (m *MockOpensearchHandler) ConfigGet() (*opensearch.SecurityGetConfigResponse, error) {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "ConfigGet")
-	ret0, _ := ret[0].(*opensearch.SecurityGetConfigResponse)
-	ret1, _ := ret[1].(error)
-	return ret0, ret1
-}
-
-// ConfigGet indicates an expected call of ConfigGet.
-func (mr *MockOpensearchHandlerMockRecorder) ConfigGet() *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ConfigGet", reflect.TypeOf((*MockOpensearchHandler)(nil).ConfigGet))
-}
-
-// ConfigUpdate mocks base method.
-func (m *MockOpensearchHandler) ConfigUpdate(arg0 *opensearch.SecurityConfig) error {
-	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "ConfigUpdate", arg0)
-	ret0, _ := ret[0].(error)
-	return ret0
-}
-
-// ConfigUpdate indicates an expected call of ConfigUpdate.
-func (mr *MockOpensearchHandlerMockRecorder) ConfigUpdate(arg0 any) *gomock.Call {
-	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ConfigUpdate", reflect.TypeOf((*MockOpensearchHandler)(nil).ConfigUpdate), arg0)
-}
-
 // IndexTemplateDelete mocks base method.
 func (m *MockOpensearchHandler) IndexTemplateDelete(arg0 string) error {
 	m.ctrl.T.Helper()
@@ -459,6 +415,50 @@ func (m *MockOpensearchHandler) RoleUpdate(arg0 string, arg1 *opensearch.Securit
 func (mr *MockOpensearchHandlerMockRecorder) RoleUpdate(arg0, arg1 any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "RoleUpdate", reflect.TypeOf((*MockOpensearchHandler)(nil).RoleUpdate), arg0, arg1)
+}
+
+// SecurityConfigDiff mocks base method.
+func (m *MockOpensearchHandler) SecurityConfigDiff(arg0, arg1, arg2 *opensearch.SecurityConfig) (*patch.PatchResult, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "SecurityConfigDiff", arg0, arg1, arg2)
+	ret0, _ := ret[0].(*patch.PatchResult)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// SecurityConfigDiff indicates an expected call of SecurityConfigDiff.
+func (mr *MockOpensearchHandlerMockRecorder) SecurityConfigDiff(arg0, arg1, arg2 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SecurityConfigDiff", reflect.TypeOf((*MockOpensearchHandler)(nil).SecurityConfigDiff), arg0, arg1, arg2)
+}
+
+// SecurityConfigGet mocks base method.
+func (m *MockOpensearchHandler) SecurityConfigGet() (*opensearch.SecurityGetConfigResponse, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "SecurityConfigGet")
+	ret0, _ := ret[0].(*opensearch.SecurityGetConfigResponse)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// SecurityConfigGet indicates an expected call of SecurityConfigGet.
+func (mr *MockOpensearchHandlerMockRecorder) SecurityConfigGet() *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SecurityConfigGet", reflect.TypeOf((*MockOpensearchHandler)(nil).SecurityConfigGet))
+}
+
+// SecurityConfigUpdate mocks base method.
+func (m *MockOpensearchHandler) SecurityConfigUpdate(arg0 *opensearch.SecurityConfig) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "SecurityConfigUpdate", arg0)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// SecurityConfigUpdate indicates an expected call of SecurityConfigUpdate.
+func (mr *MockOpensearchHandlerMockRecorder) SecurityConfigUpdate(arg0 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SecurityConfigUpdate", reflect.TypeOf((*MockOpensearchHandler)(nil).SecurityConfigUpdate), arg0)
 }
 
 // SetLogger mocks base method.
