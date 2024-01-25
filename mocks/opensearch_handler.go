@@ -301,6 +301,78 @@ func (mr *MockOpensearchHandlerMockRecorder) IngestPipelineUpdate(arg0, arg1 any
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "IngestPipelineUpdate", reflect.TypeOf((*MockOpensearchHandler)(nil).IngestPipelineUpdate), arg0, arg1)
 }
 
+// IsmCreate mocks base method.
+func (m *MockOpensearchHandler) IsmCreate(arg0 string, arg1 *opensearch.IsmPutPolicy) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "IsmCreate", arg0, arg1)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// IsmCreate indicates an expected call of IsmCreate.
+func (mr *MockOpensearchHandlerMockRecorder) IsmCreate(arg0, arg1 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "IsmCreate", reflect.TypeOf((*MockOpensearchHandler)(nil).IsmCreate), arg0, arg1)
+}
+
+// IsmDelete mocks base method.
+func (m *MockOpensearchHandler) IsmDelete(arg0 string) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "IsmDelete", arg0)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// IsmDelete indicates an expected call of IsmDelete.
+func (mr *MockOpensearchHandlerMockRecorder) IsmDelete(arg0 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "IsmDelete", reflect.TypeOf((*MockOpensearchHandler)(nil).IsmDelete), arg0)
+}
+
+// IsmDiff mocks base method.
+func (m *MockOpensearchHandler) IsmDiff(arg0, arg1, arg2 *opensearch.IsmPutPolicy) (*patch.PatchResult, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "IsmDiff", arg0, arg1, arg2)
+	ret0, _ := ret[0].(*patch.PatchResult)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// IsmDiff indicates an expected call of IsmDiff.
+func (mr *MockOpensearchHandlerMockRecorder) IsmDiff(arg0, arg1, arg2 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "IsmDiff", reflect.TypeOf((*MockOpensearchHandler)(nil).IsmDiff), arg0, arg1, arg2)
+}
+
+// IsmGet mocks base method.
+func (m *MockOpensearchHandler) IsmGet(arg0 string) (*opensearch.IsmGetPolicyResponse, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "IsmGet", arg0)
+	ret0, _ := ret[0].(*opensearch.IsmGetPolicyResponse)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// IsmGet indicates an expected call of IsmGet.
+func (mr *MockOpensearchHandlerMockRecorder) IsmGet(arg0 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "IsmGet", reflect.TypeOf((*MockOpensearchHandler)(nil).IsmGet), arg0)
+}
+
+// IsmUpdate mocks base method.
+func (m *MockOpensearchHandler) IsmUpdate(arg0 string, arg1, arg2 int64, arg3 *opensearch.IsmPutPolicy) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "IsmUpdate", arg0, arg1, arg2, arg3)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// IsmUpdate indicates an expected call of IsmUpdate.
+func (mr *MockOpensearchHandlerMockRecorder) IsmUpdate(arg0, arg1, arg2, arg3 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "IsmUpdate", reflect.TypeOf((*MockOpensearchHandler)(nil).IsmUpdate), arg0, arg1, arg2, arg3)
+}
+
 // RoleDelete mocks base method.
 func (m *MockOpensearchHandler) RoleDelete(arg0 string) error {
 	m.ctrl.T.Helper()
@@ -471,6 +543,78 @@ func (m *MockOpensearchHandler) SetLogger(arg0 *logrus.Entry) {
 func (mr *MockOpensearchHandlerMockRecorder) SetLogger(arg0 any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SetLogger", reflect.TypeOf((*MockOpensearchHandler)(nil).SetLogger), arg0)
+}
+
+// SmCreate mocks base method.
+func (m *MockOpensearchHandler) SmCreate(arg0 string, arg1 *opensearch.SmPutPolicy) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "SmCreate", arg0, arg1)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// SmCreate indicates an expected call of SmCreate.
+func (mr *MockOpensearchHandlerMockRecorder) SmCreate(arg0, arg1 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SmCreate", reflect.TypeOf((*MockOpensearchHandler)(nil).SmCreate), arg0, arg1)
+}
+
+// SmDelete mocks base method.
+func (m *MockOpensearchHandler) SmDelete(arg0 string) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "SmDelete", arg0)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// SmDelete indicates an expected call of SmDelete.
+func (mr *MockOpensearchHandlerMockRecorder) SmDelete(arg0 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SmDelete", reflect.TypeOf((*MockOpensearchHandler)(nil).SmDelete), arg0)
+}
+
+// SmDiff mocks base method.
+func (m *MockOpensearchHandler) SmDiff(arg0, arg1, arg2 *opensearch.SmPutPolicy) (*patch.PatchResult, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "SmDiff", arg0, arg1, arg2)
+	ret0, _ := ret[0].(*patch.PatchResult)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// SmDiff indicates an expected call of SmDiff.
+func (mr *MockOpensearchHandlerMockRecorder) SmDiff(arg0, arg1, arg2 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SmDiff", reflect.TypeOf((*MockOpensearchHandler)(nil).SmDiff), arg0, arg1, arg2)
+}
+
+// SmGet mocks base method.
+func (m *MockOpensearchHandler) SmGet(arg0 string) (*opensearch.SmGetPolicyResponse, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "SmGet", arg0)
+	ret0, _ := ret[0].(*opensearch.SmGetPolicyResponse)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// SmGet indicates an expected call of SmGet.
+func (mr *MockOpensearchHandlerMockRecorder) SmGet(arg0 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SmGet", reflect.TypeOf((*MockOpensearchHandler)(nil).SmGet), arg0)
+}
+
+// SmUpdate mocks base method.
+func (m *MockOpensearchHandler) SmUpdate(arg0 string, arg1, arg2 int64, arg3 *opensearch.SmPutPolicy) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "SmUpdate", arg0, arg1, arg2, arg3)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// SmUpdate indicates an expected call of SmUpdate.
+func (mr *MockOpensearchHandlerMockRecorder) SmUpdate(arg0, arg1, arg2, arg3 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SmUpdate", reflect.TypeOf((*MockOpensearchHandler)(nil).SmUpdate), arg0, arg1, arg2, arg3)
 }
 
 // SnapshotRepositoryDelete mocks base method.

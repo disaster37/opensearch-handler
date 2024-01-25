@@ -66,7 +66,7 @@ func (t *OpensearchHandlerTestSuite) TestUserUpdate() {
 		SecurityUserBase: opensearch.SecurityUserBase{
 			SecurityRoles: []string{"kibana_user"},
 		},
-		Password: "password",
+		Password: ptr.To[string]("password"),
 	}
 
 	httpmock.RegisterResponder("PUT", urlUser, func(req *http.Request) (*http.Response, error) {
@@ -93,7 +93,7 @@ func (t *OpensearchHandlerTestSuite) TestUserDiff() {
 		SecurityUserBase: opensearch.SecurityUserBase{
 			SecurityRoles: []string{"kibana_user"},
 		},
-		Password: "password",
+		Password: ptr.To[string]("password"),
 	}
 
 	// When user not exist yet
@@ -110,7 +110,7 @@ func (t *OpensearchHandlerTestSuite) TestUserDiff() {
 		SecurityUserBase: opensearch.SecurityUserBase{
 			SecurityRoles: []string{"kibana_user"},
 		},
-		Password: "password",
+		Password: ptr.To[string]("password"),
 	}
 	diff, err = t.opensearchHandler.UserDiff(actual, expected, actual)
 	if err != nil {
@@ -134,21 +134,21 @@ func (t *OpensearchHandlerTestSuite) TestUserDiff() {
 			SecurityRoles: []string{"kibana_user"},
 			Description:   ptr.To[string]("test"),
 		},
-		Password: "password",
+		Password: ptr.To[string]("password"),
 	}
 
 	expected = &opensearch.SecurityPutUser{
 		SecurityUserBase: opensearch.SecurityUserBase{
 			SecurityRoles: []string{"kibana_user"},
 		},
-		Password: "password",
+		Password: ptr.To[string]("password"),
 	}
 
 	original = &opensearch.SecurityPutUser{
 		SecurityUserBase: opensearch.SecurityUserBase{
 			SecurityRoles: []string{"kibana_user"},
 		},
-		Password: "password",
+		Password: ptr.To[string]("password"),
 	}
 
 	diff, err = t.opensearchHandler.UserDiff(actual, expected, original)
