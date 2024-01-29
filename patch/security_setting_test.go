@@ -24,6 +24,17 @@ func TestRemoveEnvironmentVariableContendTest(t *testing.T) {
 						},
 					},
 				},
+				Authz: map[string]opensearch.SecurityConfigAuthz{
+					"ldap": {
+						AuthorizationBackend: &opensearch.SecurityConfigAuthorizationBackend{
+							Config: map[string]any{
+								"username": "my user",
+								"password": "my password",
+								"dd":       "toto",
+							},
+						},
+					},
+				},
 			},
 		},
 	}
@@ -34,6 +45,17 @@ func TestRemoveEnvironmentVariableContendTest(t *testing.T) {
 				Authc: map[string]opensearch.SecurityConfigAuthc{
 					"ldap": {
 						AuthenticationBackend: &opensearch.SecurityConfigAuthenticationBackend{
+							Config: map[string]any{
+								"username": "my user",
+								"password": "${env.PASSWORD}",
+								"dd":       "toto",
+							},
+						},
+					},
+				},
+				Authz: map[string]opensearch.SecurityConfigAuthz{
+					"ldap": {
+						AuthorizationBackend: &opensearch.SecurityConfigAuthorizationBackend{
 							Config: map[string]any{
 								"username": "my user",
 								"password": "${env.PASSWORD}",

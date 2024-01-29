@@ -9,10 +9,11 @@ import (
 // Opensearch substitute env variable with real value
 func RemoveEnvironmentVariableContend(actualByte []byte, expectedByte []byte) ([]byte, []byte, error) {
 
-	rEnvVar := regexp.MustCompile(`("[^"]+"):("\$\{env\..+\}")`)
+	rEnvVar := regexp.MustCompile(`("[^"]+"):("\$\{env\.[^"]+\}")`)
 
 	matches := rEnvVar.FindAllStringSubmatch(string(expectedByte), -1)
 	for _, match := range matches {
+		fmt.Println(match[0])
 		rSubstitute := regexp.MustCompile(fmt.Sprintf(`%s:"[^"]*"`, match[1]))
 		actualByte = rSubstitute.ReplaceAll(actualByte, []byte(match[0]))
 	}
