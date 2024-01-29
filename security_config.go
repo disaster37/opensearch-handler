@@ -4,6 +4,7 @@ import (
 	"context"
 
 	"github.com/disaster37/generic-objectmatcher/patch"
+	localpatch "github.com/disaster37/opensearch-handler/v2/patch"
 	"github.com/disaster37/opensearch/v2"
 	jsonIterator "github.com/json-iterator/go"
 	"github.com/pkg/errors"
@@ -44,5 +45,5 @@ func (h *OpensearchHandlerImpl) SecurityConfigDiff(actualObject, expectedObject,
 		}, nil
 	}
 
-	return patch.DefaultPatchMaker.Calculate(actualObject, expectedObject, originalObject)
+	return patch.DefaultPatchMaker.Calculate(actualObject, expectedObject, originalObject, localpatch.RemoveEnvironmentVariableContend)
 }
