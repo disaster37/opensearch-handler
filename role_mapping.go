@@ -12,8 +12,8 @@ import (
 // RoleMappingUpdate permit to create or update role mapping
 func (h *OpensearchHandlerImpl) RoleMappingUpdate(name string, roleMapping *opensearch.SecurityPutRoleMapping) (err error) {
 
-	if _, err = h.client.SecurityPutRoleMapping(name).Body(roleMapping).Do(context.Background()); err != nil {
-		return errors.Wrapf(err, "Error when update role mapping '%s'", name)
+	if res, err := h.client.SecurityPutRoleMapping(name).Body(roleMapping).Do(context.Background()); err != nil {
+		return errors.Wrapf(err, "Error when update role mapping '%s' with %s", name, res.Message)
 	}
 
 	return nil
