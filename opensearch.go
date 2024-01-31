@@ -69,6 +69,11 @@ type OpensearchHandler interface {
 	SecurityConfigGet() (config *opensearch.SecurityGetConfigResponse, err error)
 	SecurityConfigDiff(actualObject, expectedObject, originalObject *opensearch.SecurityConfig) (patchResult *patch.PatchResult, err error)
 
+	// Security audit scope
+	SecurityAuditUpdate(config *opensearch.SecurityAudit) (err error)
+	SecurityAuditGet() (config *opensearch.SecurityGetAuditResponse, err error)
+	SecurityAuditDiff(actualObject, expectedObject, originalObject *opensearch.SecurityAudit) (patchResult *patch.PatchResult, err error)
+
 	// Index State management scope
 	IsmCreate(name string, policy *opensearch.IsmPutPolicy) (err error)
 	IsmUpdate(name string, sequenceNumber int64, pimaryTerm int64, policy *opensearch.IsmPutPolicy) (err error)

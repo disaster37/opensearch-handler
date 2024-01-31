@@ -22,7 +22,7 @@ func (h *OpensearchHandlerImpl) SecurityConfigUpdate(config *opensearch.Security
 func (h *OpensearchHandlerImpl) SecurityConfigGet() (config *opensearch.SecurityGetConfigResponse, err error) {
 	config, err = h.client.SecurityGetConfig().Do(context.Background())
 	if err != nil {
-		return nil, errors.Wrap(err, "Error when gets ecurity config")
+		return nil, errors.Wrap(err, "Error when gets security config")
 	}
 	return config, nil
 }

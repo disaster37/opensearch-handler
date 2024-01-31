@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	github.com/disaster37/generic-objectmatcher v1.0.2
-	github.com/disaster37/opensearch/v2 v2.0.4-0.20240125161814-05fe4fa1f2c4
+	github.com/disaster37/opensearch/v2 v2.0.4-0.20240131152032-6c7df8acb832
 	github.com/elastic/go-ucfg v0.8.6
 	github.com/google/go-cmp v0.6.0
 	github.com/jarcoal/httpmock v1.3.1
