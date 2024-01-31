@@ -489,6 +489,50 @@ func (mr *MockOpensearchHandlerMockRecorder) RoleUpdate(arg0, arg1 any) *gomock.
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "RoleUpdate", reflect.TypeOf((*MockOpensearchHandler)(nil).RoleUpdate), arg0, arg1)
 }
 
+// SecurityAuditDiff mocks base method.
+func (m *MockOpensearchHandler) SecurityAuditDiff(arg0, arg1, arg2 *opensearch.SecurityAudit) (*patch.PatchResult, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "SecurityAuditDiff", arg0, arg1, arg2)
+	ret0, _ := ret[0].(*patch.PatchResult)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// SecurityAuditDiff indicates an expected call of SecurityAuditDiff.
+func (mr *MockOpensearchHandlerMockRecorder) SecurityAuditDiff(arg0, arg1, arg2 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SecurityAuditDiff", reflect.TypeOf((*MockOpensearchHandler)(nil).SecurityAuditDiff), arg0, arg1, arg2)
+}
+
+// SecurityAuditGet mocks base method.
+func (m *MockOpensearchHandler) SecurityAuditGet() (*opensearch.SecurityGetAuditResponse, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "SecurityAuditGet")
+	ret0, _ := ret[0].(*opensearch.SecurityGetAuditResponse)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// SecurityAuditGet indicates an expected call of SecurityAuditGet.
+func (mr *MockOpensearchHandlerMockRecorder) SecurityAuditGet() *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SecurityAuditGet", reflect.TypeOf((*MockOpensearchHandler)(nil).SecurityAuditGet))
+}
+
+// SecurityAuditUpdate mocks base method.
+func (m *MockOpensearchHandler) SecurityAuditUpdate(arg0 *opensearch.SecurityAudit) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "SecurityAuditUpdate", arg0)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// SecurityAuditUpdate indicates an expected call of SecurityAuditUpdate.
+func (mr *MockOpensearchHandlerMockRecorder) SecurityAuditUpdate(arg0 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "SecurityAuditUpdate", reflect.TypeOf((*MockOpensearchHandler)(nil).SecurityAuditUpdate), arg0)
+}
+
 // SecurityConfigDiff mocks base method.
 func (m *MockOpensearchHandler) SecurityConfigDiff(arg0, arg1, arg2 *opensearch.SecurityConfig) (*patch.PatchResult, error) {
 	m.ctrl.T.Helper()
