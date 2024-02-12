@@ -373,6 +373,78 @@ func (mr *MockOpensearchHandlerMockRecorder) IsmUpdate(arg0, arg1, arg2, arg3 an
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "IsmUpdate", reflect.TypeOf((*MockOpensearchHandler)(nil).IsmUpdate), arg0, arg1, arg2, arg3)
 }
 
+// MonitorCreate mocks base method.
+func (m *MockOpensearchHandler) MonitorCreate(arg0 *opensearch.AlertingMonitor) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "MonitorCreate", arg0)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// MonitorCreate indicates an expected call of MonitorCreate.
+func (mr *MockOpensearchHandlerMockRecorder) MonitorCreate(arg0 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "MonitorCreate", reflect.TypeOf((*MockOpensearchHandler)(nil).MonitorCreate), arg0)
+}
+
+// MonitorDelete mocks base method.
+func (m *MockOpensearchHandler) MonitorDelete(arg0 string) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "MonitorDelete", arg0)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// MonitorDelete indicates an expected call of MonitorDelete.
+func (mr *MockOpensearchHandlerMockRecorder) MonitorDelete(arg0 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "MonitorDelete", reflect.TypeOf((*MockOpensearchHandler)(nil).MonitorDelete), arg0)
+}
+
+// MonitorDiff mocks base method.
+func (m *MockOpensearchHandler) MonitorDiff(arg0, arg1, arg2 *opensearch.AlertingMonitor) (*patch.PatchResult, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "MonitorDiff", arg0, arg1, arg2)
+	ret0, _ := ret[0].(*patch.PatchResult)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// MonitorDiff indicates an expected call of MonitorDiff.
+func (mr *MockOpensearchHandlerMockRecorder) MonitorDiff(arg0, arg1, arg2 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "MonitorDiff", reflect.TypeOf((*MockOpensearchHandler)(nil).MonitorDiff), arg0, arg1, arg2)
+}
+
+// MonitorGet mocks base method.
+func (m *MockOpensearchHandler) MonitorGet(arg0 string) (*opensearch.AlertingGetMonitor, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "MonitorGet", arg0)
+	ret0, _ := ret[0].(*opensearch.AlertingGetMonitor)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// MonitorGet indicates an expected call of MonitorGet.
+func (mr *MockOpensearchHandlerMockRecorder) MonitorGet(arg0 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "MonitorGet", reflect.TypeOf((*MockOpensearchHandler)(nil).MonitorGet), arg0)
+}
+
+// MonitorUpdate mocks base method.
+func (m *MockOpensearchHandler) MonitorUpdate(arg0 string, arg1, arg2 int64, arg3 *opensearch.AlertingMonitor) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "MonitorUpdate", arg0, arg1, arg2, arg3)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// MonitorUpdate indicates an expected call of MonitorUpdate.
+func (mr *MockOpensearchHandlerMockRecorder) MonitorUpdate(arg0, arg1, arg2, arg3 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "MonitorUpdate", reflect.TypeOf((*MockOpensearchHandler)(nil).MonitorUpdate), arg0, arg1, arg2, arg3)
+}
+
 // RoleDelete mocks base method.
 func (m *MockOpensearchHandler) RoleDelete(arg0 string) error {
 	m.ctrl.T.Helper()

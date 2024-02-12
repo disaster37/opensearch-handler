@@ -5,10 +5,10 @@ import (
 	"reflect"
 	"strings"
 
+	"emperror.dev/errors"
 	"github.com/elastic/go-ucfg"
 	ucfgjson "github.com/elastic/go-ucfg/json"
 	"github.com/google/go-cmp/cmp"
-	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 )
 

@@ -88,6 +88,13 @@ type OpensearchHandler interface {
 	SmGet(name string) (policy *opensearch.SmGetPolicyResponse, err error)
 	SmDiff(actualObject, expectedObject, originalObject *opensearch.SmPutPolicy) (patchResult *patch.PatchResult, err error)
 
+	// Monitor management scope
+	MonitorCreate(monitor *opensearch.AlertingMonitor) (err error)
+	MonitorUpdate(id string, sequenceNumber int64, pimaryTerm int64, monitor *opensearch.AlertingMonitor) (err error)
+	MonitorDelete(id string) (err error)
+	MonitorGet(name string) (monitor *opensearch.AlertingGetMonitor, err error)
+	MonitorDiff(actualObject, expectedObject, originalObject *opensearch.AlertingMonitor) (patchResult *patch.PatchResult, err error)
+
 	// Cluster scope
 	ClusterHealth() (health *opensearch.ClusterHealthResponse, err error)
 

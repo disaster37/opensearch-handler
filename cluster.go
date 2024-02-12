@@ -3,8 +3,8 @@ package opensearchhandler
 import (
 	"context"
 
+	"emperror.dev/errors"
 	"github.com/disaster37/opensearch/v2"
-	"github.com/pkg/errors"
 )
 
 // ClusterHealth permit to get the cluster health

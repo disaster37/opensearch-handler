@@ -3,11 +3,11 @@ package opensearchhandler
 import (
 	"context"
 
+	"emperror.dev/errors"
 	"github.com/disaster37/generic-objectmatcher/patch"
 	localpatch "github.com/disaster37/opensearch-handler/v2/patch"
 	"github.com/disaster37/opensearch/v2"
 	jsonIterator "github.com/json-iterator/go"
-	"github.com/pkg/errors"
 )
 
 // ComponentTemplateUpdate permit to update component template
