@@ -92,7 +92,7 @@ type OpensearchHandler interface {
 	MonitorCreate(monitor *opensearch.AlertingMonitor) (err error)
 	MonitorUpdate(id string, sequenceNumber int64, pimaryTerm int64, monitor *opensearch.AlertingMonitor) (err error)
 	MonitorDelete(id string) (err error)
-	MonitorGet(name string) (monitor *opensearch.AlertingGetMonitor, err error)
+	MonitorGet(name string) (monitor *opensearch.AlertingGetMonitorResponse, err error)
 	MonitorDiff(actualObject, expectedObject, originalObject *opensearch.AlertingMonitor) (patchResult *patch.PatchResult, err error)
 
 	// Cluster scope

@@ -32,16 +32,22 @@ func (h *OpensearchHandlerImpl) MonitorDelete(id string) (err error) {
 	}
 	return
 }
-func (h *OpensearchHandlerImpl) MonitorGet(name string) (monitor *opensearch.AlertingGetMonitor, err error) {
+func (h *OpensearchHandlerImpl) MonitorGet(name string) (monitor *opensearch.AlertingGetMonitorResponse, err error) {
 	res, err := h.client.AlertingSearchMonitor().SearchByName(name).Do(context.Background())
 	if err != nil {
-		return nil, errors.Wrapf(err, "Error when get monitor '%s'", name)
+		return nil, errors.Wrapf(err, "Error when search monitor '%s'", name)
 	}
 	if len(res) == 0 {
 		return nil, nil
 	}
 
-	return &(res[0]), nil
+	resGet, err := h.client.AlertingGetMonitor(res[0].Id).Do(context.Background())
+	if err != nil {
+		return nil, errors.Wrapf(err, "Error when get monitor '%s' (%s)", name, res[0].Id)
+	}
+
+
+	return resGet, nil
 }
 func (h *OpensearchHandlerImpl) MonitorDiff(actualObject, expectedObject, originalObject *opensearch.AlertingMonitor) (patchResult *patch.PatchResult, err error) {
 	// If not yet exist

@@ -17,17 +17,23 @@ func (t *OpensearchHandlerTestSuite) TestMonitorGet() {
 
 	searchUrl := fmt.Sprintf("%s/_plugins/_alerting/monitors/_search", baseURL)
 
-	monitor := &opensearch.AlertingGetMonitor{
-		AlertingMonitor: opensearch.AlertingMonitor{
-			Type: "monitor",
-			Name: "test",
+	monitorGet := &opensearch.AlertingGetMonitorResponse{
+		Id:             "test",
+		SequenceNumber: 1,
+		PrimaryTerm:    2,
+		Monitor: opensearch.AlertingGetMonitor{
+			AlertingMonitor: opensearch.AlertingMonitor{
+				Type: "monitor",
+				Name: "test",
+			},
 		},
 	}
 	result := map[string]any{
 		"hits": map[string]any{
 			"hits": []map[string]any{
 				{
-					"_source": monitor,
+					"_source": monitorGet.Monitor,
+					"_id":     "test",
 				},
 			},
 		},
@@ -41,11 +47,19 @@ func (t *OpensearchHandlerTestSuite) TestMonitorGet() {
 		return resp, nil
 	})
 
+	httpmock.RegisterResponder("GET", urlMonitor, func(req *http.Request) (*http.Response, error) {
+		resp, err := httpmock.NewJsonResponse(200, monitorGet)
+		if err != nil {
+			panic(err)
+		}
+		return resp, nil
+	})
+
 	resp, err := t.opensearchHandler.MonitorGet("test")
 	if err != nil {
 		t.Fail(err.Error())
 	}
-	assert.Equal(t.T(), monitor, resp)
+	assert.Equal(t.T(), monitorGet, resp)
 
 	// When error
 	httpmock.RegisterResponder("GET", searchUrl, httpmock.NewErrorResponder(errors.New("fack error")))
