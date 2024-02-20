@@ -417,10 +417,10 @@ func (mr *MockOpensearchHandlerMockRecorder) MonitorDiff(arg0, arg1, arg2 any) *
 }
 
 // MonitorGet mocks base method.
-func (m *MockOpensearchHandler) MonitorGet(arg0 string) (*opensearch.AlertingGetMonitor, error) {
+func (m *MockOpensearchHandler) MonitorGet(arg0 string) (*opensearch.AlertingGetMonitorResponse, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "MonitorGet", arg0)
-	ret0, _ := ret[0].(*opensearch.AlertingGetMonitor)
+	ret0, _ := ret[0].(*opensearch.AlertingGetMonitorResponse)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
