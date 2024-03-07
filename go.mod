@@ -5,7 +5,7 @@ go 1.20
 require (
 	emperror.dev/errors v0.8.1
 	github.com/disaster37/generic-objectmatcher v1.0.2
-	github.com/disaster37/opensearch/v2 v2.0.4
+	github.com/disaster37/opensearch/v2 v2.0.5-0.20240307162946-906d5ea524b1
 	github.com/elastic/go-ucfg v0.8.6
 	github.com/google/go-cmp v0.6.0
 	github.com/jarcoal/httpmock v1.3.1
