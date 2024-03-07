@@ -11,12 +11,8 @@ github.com/disaster37/generic-objectmatcher v1.0.2 h1:jjuMd0E/Q3ZsDCqbpd3nLdSI7I
 github.com/disaster37/generic-objectmatcher v1.0.2/go.mod h1:OyAiqj4iYNgikhoOBBNphdiToKvHtfC7Ib6C4kfkm0w=
 github.com/disaster37/k8s-objectmatcher v1.8.2 h1:txjV3rh/h6b9AhjE1PNuCNqdthemGoE8uadIlQ2sJf4=
 github.com/disaster37/k8s-objectmatcher v1.8.2/go.mod h1:2nRtPBxwgkwCBjerqlRF4oV9pqAVC1bxtl6Y4/iAt3U=
-github.com/disaster37/opensearch/v2 v2.0.4-0.20240212095908-50977a712f50 h1:2PqUMRGwuitCUFI+7onoOJ/ckYozyOB9TwTWZUvbVqQ=
-github.com/disaster37/opensearch/v2 v2.0.4-0.20240212095908-50977a712f50/go.mod h1:xz8lwI24ULHdNuy7n1RdEMkwDlfI0tBny9JROGz0Z3o=
-github.com/disaster37/opensearch/v2 v2.0.4-0.20240212102126-498b43770d71 h1:lSr5gwkVNhQuXVEG1MCYhg5OWd8tOZLzWIUy+vfssVo=
-github.com/disaster37/opensearch/v2 v2.0.4-0.20240212102126-498b43770d71/go.mod h1:xz8lwI24ULHdNuy7n1RdEMkwDlfI0tBny9JROGz0Z3o=
-github.com/disaster37/opensearch/v2 v2.0.4-0.20240220111059-9174dd0ca803 h1:VwykuCP+DvBFIZsXmf7gZbVLE7R9rC1RqURCE8UhPoM=
-github.com/disaster37/opensearch/v2 v2.0.4-0.20240220111059-9174dd0ca803/go.mod h1:xz8lwI24ULHdNuy7n1RdEMkwDlfI0tBny9JROGz0Z3o=
+github.com/disaster37/opensearch/v2 v2.0.4 h1:1JqCxQaNzlZlXCHEFCpOp0aVAuuDFD6V2AKfgYyjF94=
+github.com/disaster37/opensearch/v2 v2.0.4/go.mod h1:H8iUk2Xrm9aXnHXriXa5znpjNovehtnHZG+1rc798kQ=
 github.com/docopt/docopt-go v0.0.0-20180111231733-ee0de3bc6815/go.mod h1:WwZ+bS3ebgob9U8Nd0kOddGdZWjyMGR8Wziv+TBNwSE=
 github.com/elastic/go-ucfg v0.8.6 h1:stUeyh2goTgGX+/wb9gzKvTv0YB0231LTpKUgCKj4U0=
 github.com/elastic/go-ucfg v0.8.6/go.mod h1:4E8mPOLSUV9hQ7sgLEJ4bvt0KhMuDJa8joDT2QGAEKA=
@@ -26,8 +22,8 @@ github.com/evanphx/json-patch v5.6.0+incompatible h1:jBYDEEiFBPxA0v50tFdvOzQQTCv
 github.com/evanphx/json-patch v5.6.0+incompatible/go.mod h1:50XU6AFN0ol/bzJsmQLiYLvXMP4fmwYFNcr97nuDLSk=
 github.com/fortytw2/leaktest v1.3.0 h1:u8491cBMTQ8ft8aeV+adlcytMZylmA5nnwwkRZjI8vw=
 github.com/go-logr/logr v1.2.0/go.mod h1:jdQByPbusPIv2/zmleS9BjJVeZ6kBagPoEUsqbVz/1A=
-github.com/go-logr/logr v1.3.0 h1:2y3SDp0ZXuc6/cjLSZ+Q3ir+QB9T/iG5yYRXqsagWSY=
-github.com/go-logr/logr v1.3.0/go.mod h1:9T104GzyrTigFIr8wt5mBrctHMim0Nb2HLGrmQ40KvY=
+github.com/go-logr/logr v1.4.1 h1:pKouT5E8xu9zeFC39JXRDukb6JFQPXM5p5I91188VAQ=
+github.com/go-logr/logr v1.4.1/go.mod h1:9T104GzyrTigFIr8wt5mBrctHMim0Nb2HLGrmQ40KvY=
 github.com/gogo/protobuf v1.3.2 h1:Ov1cvc58UF3b5XjBnZv7+opcTcQFZebYjWzi34vdm4Q=
 github.com/gogo/protobuf v1.3.2/go.mod h1:P1XiOD3dCwIKUDQYPy72D8LYyHL2YPYrpS2s69NZV8Q=
 github.com/golang/glog v0.0.0-20160126235308-23def4e6c14b/go.mod h1:SBH7ygxi8pfUlaOkMMuAQtPIUF8ecWP5IEl/CR7VP2Q=
