@@ -13,7 +13,6 @@ func RemoveEnvironmentVariableContend(actualByte []byte, expectedByte []byte) ([
 
 	matches := rEnvVar.FindAllStringSubmatch(string(expectedByte), -1)
 	for _, match := range matches {
-		fmt.Println(match[0])
 		rSubstitute := regexp.MustCompile(fmt.Sprintf(`%s:"[^"]*"`, match[1]))
 		actualByte = rSubstitute.ReplaceAll(actualByte, []byte(match[0]))
 	}
