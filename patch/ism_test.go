@@ -28,6 +28,7 @@ func TestCleanIsmTemplate(t *testing.T) {
 							},
 							"rollover": map[string]any{
 								"min_doc_count": float64(5),
+								"copy_alias":    false,
 							},
 						},
 					},

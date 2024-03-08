@@ -25,15 +25,18 @@ func CleanIsmTemplate(actualByte []byte, expectedByte []byte) ([]byte, []byte, e
 	}
 
 	// Inject default value for retry action if not defined
+	// Inject default value on particular action
 	for i, state := range actual.Policy.States {
-		// Same policy
 		for j, actions := range state.Actions {
 			var retryAction map[string]any
+			var rolloverAction map[string]any
 			for actionName, action := range actions {
-				if actionName == "retry" {
+				switch actionName {
+				case "retry":
 					retryAction = action.(map[string]any)
+				case "rollover":
+					rolloverAction = action.(map[string]any)
 				}
-				break
 			}
 			if retryAction == nil {
 				actions["retry"] = map[string]any{
@@ -41,8 +44,6 @@ func CleanIsmTemplate(actualByte []byte, expectedByte []byte) ([]byte, []byte, e
 					"backoff": "exponential",
 					"delay":   "1m",
 				}
-				state.Actions[j] = actions
-				actual.Policy.States[i] = state
 			} else {
 				if _, ok := retryAction["count"]; !ok {
 					retryAction["count"] = 3
@@ -54,20 +55,32 @@ func CleanIsmTemplate(actualByte []byte, expectedByte []byte) ([]byte, []byte, e
 					retryAction["delay"] = "1m"
 				}
 				actions["retry"] = retryAction
-				state.Actions[j] = actions
-				actual.Policy.States[i] = state
+
 			}
+
+			if rolloverAction != nil {
+				if _, ok := rolloverAction["copy_alias"]; !ok {
+					rolloverAction["copy_alias"] = false
+				}
+				actions["rollover"] = rolloverAction
+
+			}
+
+			state.Actions[j] = actions
+			actual.Policy.States[i] = state
 		}
 	}
 	for i, state := range expected.Policy.States {
-		// Same policy
 		for j, actions := range state.Actions {
 			var retryAction map[string]any
+			var rolloverAction map[string]any
 			for actionName, action := range actions {
-				if actionName == "retry" {
+				switch actionName {
+				case "retry":
 					retryAction = action.(map[string]any)
+				case "rollover":
+					rolloverAction = action.(map[string]any)
 				}
-				break
 			}
 			if retryAction == nil {
 				actions["retry"] = map[string]any{
@@ -75,8 +88,6 @@ func CleanIsmTemplate(actualByte []byte, expectedByte []byte) ([]byte, []byte, e
 					"backoff": "exponential",
 					"delay":   "1m",
 				}
-				state.Actions[j] = actions
-				expected.Policy.States[i] = state
 			} else {
 				if _, ok := retryAction["count"]; !ok {
 					retryAction["count"] = 3
@@ -88,9 +99,19 @@ func CleanIsmTemplate(actualByte []byte, expectedByte []byte) ([]byte, []byte, e
 					retryAction["delay"] = "1m"
 				}
 				actions["retry"] = retryAction
-				state.Actions[j] = actions
-				expected.Policy.States[i] = state
+
 			}
+
+			if rolloverAction != nil {
+				if _, ok := rolloverAction["copy_alias"]; !ok {
+					rolloverAction["copy_alias"] = false
+				}
+				actions["rollover"] = rolloverAction
+
+			}
+
+			state.Actions[j] = actions
+			expected.Policy.States[i] = state
 		}
 	}
 

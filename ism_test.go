@@ -600,6 +600,7 @@ func (t *OpensearchHandlerTestSuite) TestIsmDiff() {
 							},
 							"rollover": map[string]any{
 								"min_doc_count": float64(5),
+								"copy_alias":    false,
 							},
 						},
 					},
@@ -649,6 +650,6 @@ func (t *OpensearchHandlerTestSuite) TestIsmDiff() {
 		t.Fail(err.Error())
 	}
 	assert.True(t.T(), diff.IsEmpty())
-	assert.Empty(t.T(), string(diff.Patch))
+	assert.Equal(t.T(), `{}`, string(diff.Patch))
 
 }
