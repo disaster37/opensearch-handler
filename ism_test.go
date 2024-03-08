@@ -482,4 +482,173 @@ func (t *OpensearchHandlerTestSuite) TestIsmDiff() {
 	assert.True(t.T(), diff.IsEmpty())
 	assert.Equal(t.T(), actual, diff.Patched)
 
+	// Check fix real issue on opensearch operator
+	expected = &opensearch.IsmPutPolicy{
+		Policy: opensearch.IsmPolicyBase{
+			ID:           ptr.To[string]("policy-test"),
+			Description:  ptr.To[string]("ingesting logs"),
+			DefaultState: ptr.To[string]("ingest"),
+			States: []opensearch.IsmPolicyState{
+				{
+					Name: "ingest",
+					Actions: []map[string]any{
+						{
+							"rollover": map[string]any{
+								"min_doc_count": float64(5),
+							},
+						},
+					},
+					Transitions: []opensearch.IsmPolicyStateTransition{
+						{
+							StateName: "search",
+						},
+					},
+				},
+				{
+					Name: "search",
+					Transitions: []opensearch.IsmPolicyStateTransition{
+						{
+							StateName: "delete",
+							Conditions: map[string]any{
+								"min_index_age": "5m",
+							},
+						},
+					},
+				},
+				{
+					Name: "delete",
+					Actions: []map[string]any{
+						{
+							"delete": map[string]any{},
+						},
+					},
+				},
+			},
+			IsmTemplate: []opensearch.IsmPolicyTemplate{
+				{
+					IndexPatterns: []string{"test-*"},
+					Priority:      ptr.To[int64](0),
+				},
+			},
+		},
+	}
+
+	original = &opensearch.IsmPutPolicy{
+		Policy: opensearch.IsmPolicyBase{
+			ID:           ptr.To[string]("policy-test"),
+			Description:  ptr.To[string]("ingesting logs"),
+			DefaultState: ptr.To[string]("ingest"),
+			States: []opensearch.IsmPolicyState{
+				{
+					Name: "ingest",
+					Actions: []map[string]any{
+						{
+							"rollover": map[string]any{
+								"min_doc_count": float64(5),
+							},
+						},
+					},
+					Transitions: []opensearch.IsmPolicyStateTransition{
+						{
+							StateName: "search",
+						},
+					},
+				},
+				{
+					Name: "search",
+					Transitions: []opensearch.IsmPolicyStateTransition{
+						{
+							StateName: "delete",
+							Conditions: map[string]any{
+								"min_index_age": "5m",
+							},
+						},
+					},
+				},
+				{
+					Name: "delete",
+					Actions: []map[string]any{
+						{
+							"delete": map[string]any{},
+						},
+					},
+				},
+			},
+			IsmTemplate: []opensearch.IsmPolicyTemplate{
+				{
+					IndexPatterns: []string{"test-*"},
+					Priority:      ptr.To[int64](0),
+				},
+			},
+		},
+	}
+
+	actual = &opensearch.IsmPutPolicy{
+		Policy: opensearch.IsmPolicyBase{
+			ID:           ptr.To[string]("policy-test"),
+			Description:  ptr.To[string]("ingesting logs"),
+			DefaultState: ptr.To[string]("ingest"),
+			States: []opensearch.IsmPolicyState{
+				{
+					Name: "ingest",
+					Actions: []map[string]any{
+						{
+							"retry": map[string]any{
+								"count":   3,
+								"backoff": "exponential",
+								"delay":   "1m",
+							},
+							"rollover": map[string]any{
+								"min_doc_count": float64(5),
+							},
+						},
+					},
+					Transitions: []opensearch.IsmPolicyStateTransition{
+						{
+							StateName: "search",
+						},
+					},
+				},
+				{
+					Name: "search",
+					Transitions: []opensearch.IsmPolicyStateTransition{
+						{
+							StateName: "delete",
+							Conditions: map[string]any{
+								"min_index_age": "5m",
+							},
+						},
+					},
+				},
+				{
+					Name: "delete",
+					Actions: []map[string]any{
+						{
+							"retry": map[string]any{
+								"count":   3,
+								"backoff": "exponential",
+								"delay":   "1m",
+							},
+							"delete": map[string]any{},
+						},
+					},
+				},
+			},
+			IsmTemplate: []opensearch.IsmPolicyTemplate{
+				{
+					IndexPatterns:   []string{"test-*"},
+					Priority:        ptr.To[int64](0),
+					LastUpdatedTime: ptr.To[int64](1709829562552),
+				},
+			},
+		},
+	}
+
+	diff, err = t.opensearchHandler.IsmDiff(actual, expected, original)
+	if err != nil {
+		t.Fail(err.Error())
+	}
+	assert.True(t.T(), diff.IsEmpty())
+	assert.Empty(t.T(), string(diff.Patch))
+
 }

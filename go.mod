@@ -5,7 +5,7 @@ go 1.20
 require (
 	emperror.dev/errors v0.8.1
 	github.com/disaster37/generic-objectmatcher v1.0.2
-	github.com/disaster37/opensearch/v2 v2.0.5-0.20240307162946-906d5ea524b1
+	github.com/disaster37/opensearch/v2 v2.0.5-0.20240308131210-da095e52d374
 	github.com/elastic/go-ucfg v0.8.6
 	github.com/google/go-cmp v0.6.0
 	github.com/jarcoal/httpmock v1.3.1
@@ -34,7 +34,7 @@ require (
 	go.uber.org/atomic v1.7.0 // indirect
 	go.uber.org/multierr v1.6.0 // indirect
 	golang.org/x/net v0.0.0-20220722155237-a158d28d115b // indirect
-	golang.org/x/sys v0.17.0 // indirect
+	golang.org/x/sys v0.18.0 // indirect
 	golang.org/x/text v0.3.7 // indirect
 	google.golang.org/protobuf v1.28.0 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect

@@ -7,6 +7,7 @@ import (
 	"github.com/disaster37/generic-objectmatcher/patch"
 	"github.com/disaster37/opensearch/v2"
 	jsonIterator "github.com/json-iterator/go"
+	localpatch "github.com/disaster37/opensearch-handler/v2/patch"
 )
 
 // IsmCreate permit to crate new ISM policy
@@ -70,5 +71,5 @@ func (h *OpensearchHandlerImpl) IsmDiff(actualObject, expectedObject, originalOb
 		}, nil
 	}
 
-	return patch.DefaultPatchMaker.Calculate(actualObject, expectedObject, originalObject)
+	return patch.DefaultPatchMaker.Calculate(actualObject, expectedObject, originalObject, localpatch.CleanIsmTemplate)
 }
