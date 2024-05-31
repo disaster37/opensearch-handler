@@ -95,7 +95,7 @@ func CleanIsmTemplate(actualByte []byte, expectedByte []byte) ([]byte, []byte, e
 					allocationAction["exclude"] = map[string]any{}
 				}
 				if _, ok := allocationAction["wait_for"]; !ok {
-					allocationAction["wait_for"] = map[string]any{}
+					allocationAction["wait_for"] = false
 				}
 				actions["allocation"] = allocationAction
 			}

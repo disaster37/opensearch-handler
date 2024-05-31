@@ -58,7 +58,7 @@ func TestCleanIsmTemplate(t *testing.T) {
 								},
 								"include":  map[string]any{},
 								"exclude":  map[string]any{},
-								"wait_for": map[string]any{},
+								"wait_for": false,
 							},
 						},
 					},
