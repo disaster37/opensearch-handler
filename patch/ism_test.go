@@ -31,6 +31,21 @@ func TestCleanIsmTemplate(t *testing.T) {
 								"copy_alias":    false,
 							},
 						},
+						{
+							"retry": map[string]any{
+								"count":   3,
+								"backoff": "exponential",
+								"delay":   "1m",
+							},
+							"shrink": map[string]any{
+								"max_shard_size": "50gb",
+								"switch_aliases": true,
+								"target_index_name_template": map[string]any{
+									"source": "shrunk_{{ctx.index}}",
+									"lang":   "mustache",
+								},
+							},
+						},
 					},
 					Transitions: []opensearch.IsmPolicyStateTransition{
 						{
@@ -87,6 +102,15 @@ func TestCleanIsmTemplate(t *testing.T) {
 								"min_doc_count": float64(5),
 							},
 						},
+						{
+							"shrink": map[string]any{
+								"max_shard_size": "50gb",
+								"switch_aliases": true,
+								"target_index_name_template": map[string]any{
+									"source": "shrunk_{{ctx.index}}",
+								},
+							},
+						},
 					},
 					Transitions: []opensearch.IsmPolicyStateTransition{
 						{
@@ -135,6 +159,6 @@ func TestCleanIsmTemplate(t *testing.T) {
 
 	acualByte, expectedByte, err = CleanIsmTemplate(acualByte, expectedByte)
 	assert.NoError(t, err)
-	assert.Equal(t, expectedByte, acualByte)
+	assert.Equal(t, string(expectedByte), string(acualByte))
 
 }

@@ -72,14 +72,19 @@ func CleanIsmTemplate(actualByte []byte, expectedByte []byte) ([]byte, []byte, e
 	}
 	for i, state := range expected.Policy.States {
 		for j, actions := range state.Actions {
-			var retryAction map[string]any
-			var rolloverAction map[string]any
+			var (
+				retryAction    map[string]any
+				rolloverAction map[string]any
+				shrinkAction   map[string]any
+			)
 			for actionName, action := range actions {
 				switch actionName {
 				case "retry":
 					retryAction = action.(map[string]any)
 				case "rollover":
 					rolloverAction = action.(map[string]any)
+				case "shrink":
+					shrinkAction = action.(map[string]any)
 				}
 			}
 			if retryAction == nil {
@@ -108,6 +113,17 @@ func CleanIsmTemplate(actualByte []byte, expectedByte []byte) ([]byte, []byte, e
 				}
 				actions["rollover"] = rolloverAction
 
+			}
+
+			if shrinkAction != nil {
+				if _, ok := shrinkAction["target_index_name_template"]; ok {
+					targetIndexNameTemplate := shrinkAction["target_index_name_template"].(map[string]any)
+					if _, ok := targetIndexNameTemplate["lang"]; !ok {
+						targetIndexNameTemplate["lang"] = "mustache"
+						shrinkAction["target_index_name_template"] = targetIndexNameTemplate
+						actions["shrink"] = shrinkAction
+					}
+				}
 			}
 
 			state.Actions[j] = actions
