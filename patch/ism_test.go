@@ -46,6 +46,21 @@ func TestCleanIsmTemplate(t *testing.T) {
 								},
 							},
 						},
+						{
+							"retry": map[string]any{
+								"count":   3,
+								"backoff": "exponential",
+								"delay":   "1m",
+							},
+							"allocation": map[string]any{
+								"require": map[string]any{
+									"temp": "warm",
+								},
+								"include":  map[string]any{},
+								"exclude":  map[string]any{},
+								"wait_for": map[string]any{},
+							},
+						},
 					},
 					Transitions: []opensearch.IsmPolicyStateTransition{
 						{
@@ -108,6 +123,13 @@ func TestCleanIsmTemplate(t *testing.T) {
 								"switch_aliases": true,
 								"target_index_name_template": map[string]any{
 									"source": "shrunk_{{ctx.index}}",
+								},
+							},
+						},
+						{
+							"allocation": map[string]any{
+								"require": map[string]any{
+									"temp": "warm",
 								},
 							},
 						},

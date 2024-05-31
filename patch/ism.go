@@ -25,57 +25,13 @@ func CleanIsmTemplate(actualByte []byte, expectedByte []byte) ([]byte, []byte, e
 	}
 
 	// Inject default value for retry action if not defined
-	// Inject default value on particular action
-	for i, state := range actual.Policy.States {
-		for j, actions := range state.Actions {
-			var retryAction map[string]any
-			var rolloverAction map[string]any
-			for actionName, action := range actions {
-				switch actionName {
-				case "retry":
-					retryAction = action.(map[string]any)
-				case "rollover":
-					rolloverAction = action.(map[string]any)
-				}
-			}
-			if retryAction == nil {
-				actions["retry"] = map[string]any{
-					"count":   3,
-					"backoff": "exponential",
-					"delay":   "1m",
-				}
-			} else {
-				if _, ok := retryAction["count"]; !ok {
-					retryAction["count"] = 3
-				}
-				if _, ok := retryAction["backoff"]; !ok {
-					retryAction["backoff"] = "exponential"
-				}
-				if _, ok := retryAction["delay"]; !ok {
-					retryAction["delay"] = "1m"
-				}
-				actions["retry"] = retryAction
-
-			}
-
-			if rolloverAction != nil {
-				if _, ok := rolloverAction["copy_alias"]; !ok {
-					rolloverAction["copy_alias"] = false
-				}
-				actions["rollover"] = rolloverAction
-
-			}
-
-			state.Actions[j] = actions
-			actual.Policy.States[i] = state
-		}
-	}
 	for i, state := range expected.Policy.States {
 		for j, actions := range state.Actions {
 			var (
-				retryAction    map[string]any
-				rolloverAction map[string]any
-				shrinkAction   map[string]any
+				retryAction      map[string]any
+				rolloverAction   map[string]any
+				shrinkAction     map[string]any
+				allocationAction map[string]any
 			)
 			for actionName, action := range actions {
 				switch actionName {
@@ -85,6 +41,8 @@ func CleanIsmTemplate(actualByte []byte, expectedByte []byte) ([]byte, []byte, e
 					rolloverAction = action.(map[string]any)
 				case "shrink":
 					shrinkAction = action.(map[string]any)
+				case "allocation":
+					allocationAction = action.(map[string]any)
 				}
 			}
 			if retryAction == nil {
@@ -124,6 +82,22 @@ func CleanIsmTemplate(actualByte []byte, expectedByte []byte) ([]byte, []byte, e
 						actions["shrink"] = shrinkAction
 					}
 				}
+			}
+
+			if allocationAction != nil {
+				if _, ok := allocationAction["require"]; !ok {
+					allocationAction["require"] = map[string]any{}
+				}
+				if _, ok := allocationAction["include"]; !ok {
+					allocationAction["include"] = map[string]any{}
+				}
+				if _, ok := allocationAction["exclude"]; !ok {
+					allocationAction["exclude"] = map[string]any{}
+				}
+				if _, ok := allocationAction["wait_for"]; !ok {
+					allocationAction["wait_for"] = map[string]any{}
+				}
+				actions["allocation"] = allocationAction
 			}
 
 			state.Actions[j] = actions
