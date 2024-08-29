@@ -5,7 +5,7 @@ go 1.22
 require (
 	emperror.dev/errors v0.8.1
 	github.com/disaster37/generic-objectmatcher v1.0.2
-	github.com/disaster37/opensearch/v2 v2.0.8
+	github.com/disaster37/opensearch/v2 v2.0.10
 	github.com/elastic/go-ucfg v0.8.8
 	github.com/google/go-cmp v0.6.0
 	github.com/jarcoal/httpmock v1.3.1
@@ -13,7 +13,7 @@ require (
 	github.com/sirupsen/logrus v1.9.3
 	github.com/stretchr/testify v1.9.0
 	go.uber.org/mock v0.4.0
-	k8s.io/utils v0.0.0-20240502163921-fe8a2dddb1d0
+	k8s.io/utils v0.0.0-20240821151609-f90d01438635
 )
 
 require (
