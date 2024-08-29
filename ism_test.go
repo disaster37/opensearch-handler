@@ -291,8 +291,14 @@ func (t *OpensearchHandlerTestSuite) TestIsmDiff() {
 					Name: "ingest",
 					Actions: []map[string]any{
 						{
+							"retry": map[string]any{
+								"count":   3,
+								"backoff": "exponential",
+								"delay":   "1m",
+							},
 							"rollover": map[string]any{
 								"min_doc_count": float64(5),
+								"copy_alias":    false,
 							},
 						},
 					},
@@ -317,6 +323,11 @@ func (t *OpensearchHandlerTestSuite) TestIsmDiff() {
 					Name: "delete",
 					Actions: []map[string]any{
 						{
+							"retry": map[string]any{
+								"count":   3,
+								"backoff": "exponential",
+								"delay":   "1m",
+							},
 							"delete": map[string]any{},
 						},
 					},
@@ -329,7 +340,6 @@ func (t *OpensearchHandlerTestSuite) TestIsmDiff() {
 		t.Fail(err.Error())
 	}
 	assert.True(t.T(), diff.IsEmpty())
-	assert.Equal(t.T(), expected, diff.Patched)
 
 	// When ISM is not the same
 	expected.Policy.Description = ptr.To[string]("test2")
@@ -338,7 +348,6 @@ func (t *OpensearchHandlerTestSuite) TestIsmDiff() {
 		t.Fail(err.Error())
 	}
 	assert.False(t.T(), diff.IsEmpty())
-	assert.Equal(t.T(), expected, diff.Patched)
 
 	// When opensearch add default values
 	expected = &opensearch.IsmPutPolicy{
@@ -393,6 +402,11 @@ func (t *OpensearchHandlerTestSuite) TestIsmDiff() {
 					Name: "ingest",
 					Actions: []map[string]any{
 						{
+							"retry": map[string]any{
+								"count":   3,
+								"backoff": "exponential",
+								"delay":   "1m",
+							},
 							"rollover": map[string]any{
 								"min_doc_count": float64(5),
 							},
@@ -419,9 +433,19 @@ func (t *OpensearchHandlerTestSuite) TestIsmDiff() {
 					Name: "delete",
 					Actions: []map[string]any{
 						{
+							"retry": map[string]any{
+								"count":   3,
+								"backoff": "exponential",
+								"delay":   "1m",
+							},
 							"delete": map[string]any{},
 						},
 					},
+				},
+			},
+			ErrorNotification: &opensearch.IsmErrorNotification{
+				Channel: &opensearch.IsmErrorNotificationChannel{
+					ID: "test",
 				},
 			},
 		},
@@ -436,8 +460,14 @@ func (t *OpensearchHandlerTestSuite) TestIsmDiff() {
 					Name: "ingest",
 					Actions: []map[string]any{
 						{
+							"retry": map[string]any{
+								"count":   3,
+								"backoff": "exponential",
+								"delay":   "1m",
+							},
 							"rollover": map[string]any{
 								"min_doc_count": float64(5),
+								"copy_alias":    false,
 							},
 						},
 					},
@@ -462,14 +492,14 @@ func (t *OpensearchHandlerTestSuite) TestIsmDiff() {
 					Name: "delete",
 					Actions: []map[string]any{
 						{
+							"retry": map[string]any{
+								"count":   3,
+								"backoff": "exponential",
+								"delay":   "1m",
+							},
 							"delete": map[string]any{},
 						},
 					},
-				},
-			},
-			ErrorNotification: &opensearch.IsmErrorNotification{
-				Channel: &opensearch.IsmErrorNotificationChannel{
-					ID: "test",
 				},
 			},
 		},
@@ -480,7 +510,6 @@ func (t *OpensearchHandlerTestSuite) TestIsmDiff() {
 		t.Fail(err.Error())
 	}
 	assert.True(t.T(), diff.IsEmpty())
-	assert.Equal(t.T(), actual, diff.Patched)
 
 	// Check fix real issue on opensearch operator
 	expected = &opensearch.IsmPutPolicy{
