@@ -8,7 +8,6 @@ import (
 )
 
 func ManageTenant() {
-
 	var (
 		tenant         *opensearch.SecurityTenant
 		expectedTenant *opensearch.SecurityPutTenant
@@ -63,5 +62,4 @@ func ManageTenant() {
 	if err = client.TenantDelete("test"); err != nil {
 		log.Fatalf("Error when delete tenant: %s", err.Error())
 	}
-
 }

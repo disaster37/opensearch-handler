@@ -12,7 +12,6 @@ import (
 )
 
 func GetClient() opensearchhandler.OpensearchHandler {
-
 	client, err := opensearchhandler.NewOpensearchHandler(&config.Config{
 		URLs:        []string{"https://127.0.0.1:9200"},
 		Username:    "admin",
@@ -25,7 +24,6 @@ func GetClient() opensearchhandler.OpensearchHandler {
 			},
 		},
 	}, logrus.NewEntry(logrus.New()))
-
 	if err != nil {
 		log.Fatalf("Error when init Opensearch handler: %s", err.Error())
 	}

@@ -8,7 +8,6 @@ import (
 )
 
 func ManageSecurityConfig() {
-
 	var (
 		securityConfig         *opensearch.SecurityGetConfigResponse
 		expectedSecurityConfig *opensearch.SecurityConfig
@@ -76,5 +75,4 @@ func ManageSecurityConfig() {
 			log.Fatalf("Error when update security config: %s", err.Error())
 		}
 	}
-
 }

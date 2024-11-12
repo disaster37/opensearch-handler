@@ -8,7 +8,6 @@ import (
 )
 
 func ManageIndexStateManagement() {
-
 	var (
 		ism         *opensearch.IsmGetPolicyResponse
 		expectedIsm *opensearch.IsmPutPolicy
@@ -178,5 +177,4 @@ func ManageIndexStateManagement() {
 	if err = client.IsmDelete("test"); err != nil {
 		log.Fatalf("Error when delete ism: %s", err.Error())
 	}
-
 }

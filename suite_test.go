@@ -21,7 +21,6 @@ func TestOpensearchHandlerSuite(t *testing.T) {
 }
 
 func (t *OpensearchHandlerTestSuite) SetupTest() {
-
 	client, err := opensearch.NewClient(opensearch.SetURL(baseURL), opensearch.SetTransport(httpmock.DefaultTransport), opensearch.SetHealthcheck(false), opensearch.SetSniff(false))
 	if err != nil {
 		panic(err)
@@ -33,7 +32,6 @@ func (t *OpensearchHandlerTestSuite) SetupTest() {
 		client: client,
 		log:    logrus.NewEntry(logrus.New()),
 	}
-
 }
 
 func (t *OpensearchHandlerTestSuite) BeforeTest(suiteName, testName string) {

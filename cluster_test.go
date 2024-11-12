@@ -15,7 +15,6 @@ import (
 var urlCluster = fmt.Sprintf("%s/_cluster", baseURL)
 
 func (t *OpensearchHandlerTestSuite) TestClusterHealth() {
-
 	rawHealth := `
 	{
 		"cluster_name" : "test",

@@ -14,10 +14,8 @@ import (
 var urlActionGroup = fmt.Sprintf("%s/_plugins/_security/api/actiongroups/test", baseURL)
 
 func (t *OpensearchHandlerTestSuite) TestActionGroupGet() {
-
 	result := make(map[string]opensearch.SecurityActionGroup)
 	ag := &opensearch.SecurityActionGroup{
-
 		SecurityPutActionGroup: opensearch.SecurityPutActionGroup{
 			AllowedActions: []string{"cluster_all"},
 		},
@@ -45,7 +43,6 @@ func (t *OpensearchHandlerTestSuite) TestActionGroupGet() {
 }
 
 func (t *OpensearchHandlerTestSuite) TestActionGroupDelete() {
-
 	httpmock.RegisterResponder("DELETE", urlActionGroup, func(req *http.Request) (*http.Response, error) {
 		resp := httpmock.NewStringResponse(200, `{}`)
 		return resp, nil
@@ -140,5 +137,4 @@ func (t *OpensearchHandlerTestSuite) TestActionGroupDiff() {
 	}
 	assert.True(t.T(), diff.IsEmpty())
 	assert.Equal(t.T(), actual, diff.Patched)
-
 }

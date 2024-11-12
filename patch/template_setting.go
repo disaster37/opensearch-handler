@@ -17,7 +17,6 @@ type IndicesGetIndexTemplate struct {
 }
 
 func (o *IndicesGetComponentTemplate) UnmarshalJSON(data []byte) error {
-
 	tmp := &opensearch.IndicesGetComponentTemplate{}
 	if err := json.ConfigCompatibleWithStandardLibrary.Unmarshal(data, &tmp); err != nil {
 		return err
@@ -33,7 +32,6 @@ func (o *IndicesGetComponentTemplate) UnmarshalJSON(data []byte) error {
 }
 
 func (o *IndicesGetIndexTemplate) UnmarshalJSON(data []byte) error {
-
 	tmp := &opensearch.IndicesGetIndexTemplate{}
 	if err := json.ConfigCompatibleWithStandardLibrary.Unmarshal(data, &tmp); err != nil {
 		return err

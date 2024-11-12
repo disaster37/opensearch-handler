@@ -11,7 +11,6 @@ import (
 
 // SnapshotRepositoryUpdate permit to create or update snapshot repository
 func (h *OpensearchHandlerImpl) SnapshotRepositoryUpdate(name string, repository *opensearch.SnapshotRepositoryMetaData) (err error) {
-
 	if _, err = h.client.SnapshotCreateRepository(name).BodyJson(repository).Do(context.Background()); err != nil {
 		return errors.Wrapf(err, "Error when update snapshot repository '%s'", name)
 	}
@@ -21,7 +20,6 @@ func (h *OpensearchHandlerImpl) SnapshotRepositoryUpdate(name string, repository
 
 // SnapshotRepositoryDelete permit to delete snapshot repository
 func (h *OpensearchHandlerImpl) SnapshotRepositoryDelete(name string) (err error) {
-
 	if _, err = h.client.SnapshotDeleteRepository(name).Do(context.Background()); err != nil {
 		if opensearch.IsNotFound(err) {
 			return nil
@@ -34,7 +32,6 @@ func (h *OpensearchHandlerImpl) SnapshotRepositoryDelete(name string) (err error
 
 // SnapshotRepositoryGet permit to get snapshot repository
 func (h *OpensearchHandlerImpl) SnapshotRepositoryGet(name string) (repository *opensearch.SnapshotRepositoryMetaData, err error) {
-
 	snapshotRepository, err := h.client.SnapshotGetRepository(name).Do(context.Background())
 	if err != nil {
 		if opensearch.IsNotFound(err) {
@@ -44,7 +41,6 @@ func (h *OpensearchHandlerImpl) SnapshotRepositoryGet(name string) (repository *
 	}
 
 	return snapshotRepository[name], nil
-
 }
 
 // SnapshotRepositoryDiff permit to check if 2 repositories are the same

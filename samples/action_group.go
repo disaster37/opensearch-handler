@@ -8,7 +8,6 @@ import (
 )
 
 func ManageActionGroup() {
-
 	var (
 		actionGroup         *opensearch.SecurityActionGroup
 		expectedActionGroup *opensearch.SecurityPutActionGroup
@@ -66,5 +65,4 @@ func ManageActionGroup() {
 	if err = client.ActionGroupDelete("test"); err != nil {
 		log.Fatalf("Error when delete action group: %s", err.Error())
 	}
-
 }

@@ -14,7 +14,6 @@ import (
 var urlConfig = fmt.Sprintf("%s/_plugins/_security/api/securityconfig", baseURL)
 
 func (t *OpensearchHandlerTestSuite) TestConfigGet() {
-
 	config := &opensearch.SecurityGetConfigResponse{
 		Config: opensearch.SecurityConfig{
 			Dynamic: opensearch.SecurityConfigDynamic{
@@ -45,7 +44,6 @@ func (t *OpensearchHandlerTestSuite) TestConfigGet() {
 }
 
 func (t *OpensearchHandlerTestSuite) TestConfigUpdate() {
-
 	urlConfigUpdate := fmt.Sprintf("%s/config", urlConfig)
 
 	config := &opensearch.SecurityConfig{
@@ -145,5 +143,4 @@ func (t *OpensearchHandlerTestSuite) TestConfigDiff() {
 	}
 	assert.True(t.T(), diff.IsEmpty())
 	assert.Equal(t.T(), actual, diff.Patched)
-
 }

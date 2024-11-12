@@ -5,9 +5,9 @@ import (
 
 	"emperror.dev/errors"
 	"github.com/disaster37/generic-objectmatcher/patch"
+	localpatch "github.com/disaster37/opensearch-handler/v2/patch"
 	"github.com/disaster37/opensearch/v2"
 	jsonIterator "github.com/json-iterator/go"
-	localpatch "github.com/disaster37/opensearch-handler/v2/patch"
 )
 
 // IsmCreate permit to crate new ISM policy

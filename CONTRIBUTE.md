@@ -1,0 +1,37 @@
+# Contribute
+
+PR are always welcome.
+
+Please start from branch `release-branch.v2`
+
+## CI
+
+### Run all step in local
+
+```bash
+dagger call --src . ci export --path .
+```
+
+### Format code
+
+```bash
+dagger call --src . format export --path .
+```
+
+### Run lint
+
+```bash
+dagger call --src . lint
+```
+
+### Run tests
+
+```bash
+dagger call --src . test
+```
+
+### Generate mock
+
+```bash
+dagger call --src . generate-mock export --path .
+```

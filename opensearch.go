@@ -107,7 +107,6 @@ type OpensearchHandlerImpl struct {
 }
 
 func NewOpensearchHandler(cfg *config.Config, log *logrus.Entry) (OpensearchHandler, error) {
-
 	client, err := opensearch.NewClientFromConfig(cfg)
 	if err != nil {
 		return nil, err

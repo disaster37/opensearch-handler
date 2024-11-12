@@ -14,7 +14,6 @@ import (
 var urlUser = fmt.Sprintf("%s/_plugins/_security/api/internalusers/test", baseURL)
 
 func (t *OpensearchHandlerTestSuite) TestUserGet() {
-
 	result := make(opensearch.SecurityGetUserResponse)
 	user := &opensearch.SecurityUser{
 		SecurityUserBase: opensearch.SecurityUserBase{
@@ -44,7 +43,6 @@ func (t *OpensearchHandlerTestSuite) TestUserGet() {
 }
 
 func (t *OpensearchHandlerTestSuite) TestUserDelete() {
-
 	httpmock.RegisterResponder("DELETE", urlUser, func(req *http.Request) (*http.Response, error) {
 		resp := httpmock.NewStringResponse(200, `{}`)
 		return resp, nil
@@ -89,7 +87,6 @@ func (t *OpensearchHandlerTestSuite) TestUserDiff() {
 	var actual, expected, original *opensearch.SecurityPutUser
 
 	expected = &opensearch.SecurityPutUser{
-
 		SecurityUserBase: opensearch.SecurityUserBase{
 			SecurityRoles: []string{"kibana_user"},
 		},
@@ -157,5 +154,4 @@ func (t *OpensearchHandlerTestSuite) TestUserDiff() {
 	}
 	assert.True(t.T(), diff.IsEmpty())
 	assert.Equal(t.T(), actual, diff.Patched)
-
 }

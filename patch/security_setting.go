@@ -8,7 +8,6 @@ import (
 // RemoveEnvironmentVariableContend permit to nto compare env variable
 // Opensearch substitute env variable with real value
 func RemoveEnvironmentVariableContend(actualByte []byte, expectedByte []byte) ([]byte, []byte, error) {
-
 	rEnvVar := regexp.MustCompile(`("[^"]+"):("\$\{env\.[^"]+\}")`)
 
 	matches := rEnvVar.FindAllStringSubmatch(string(expectedByte), -1)

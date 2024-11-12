@@ -13,7 +13,6 @@ import (
 var urlComponentTemplate = fmt.Sprintf("%s/_component_template/test", baseURL)
 
 func (t *OpensearchHandlerTestSuite) TestComponentTemplateGet() {
-
 	result := &opensearch.IndicesGetComponentTemplateResponse{}
 	component := &opensearch.IndicesGetComponentTemplate{
 		Template: &opensearch.IndicesGetComponentTemplateData{
@@ -50,7 +49,6 @@ func (t *OpensearchHandlerTestSuite) TestComponentTemplateGet() {
 }
 
 func (t *OpensearchHandlerTestSuite) TestComponentTemplateDelete() {
-
 	httpmock.RegisterResponder("DELETE", urlComponentTemplate, func(req *http.Request) (*http.Response, error) {
 		resp := httpmock.NewStringResponse(200, `{}`)
 		return resp, nil
@@ -195,5 +193,4 @@ func (t *OpensearchHandlerTestSuite) TestComponentTemplateDiff() {
 	}
 	assert.True(t.T(), diff.IsEmpty())
 	assert.Equal(t.T(), actual, diff.Patched)
-
 }

@@ -14,7 +14,6 @@ import (
 var urlRole = fmt.Sprintf("%s/_plugins/_security/api/roles/test", baseURL)
 
 func (t *OpensearchHandlerTestSuite) TestRoleGet() {
-
 	result := make(map[string]opensearch.SecurityRole)
 	role := &opensearch.SecurityRole{
 		SecurityPutRole: opensearch.SecurityPutRole{
@@ -50,7 +49,6 @@ func (t *OpensearchHandlerTestSuite) TestRoleGet() {
 }
 
 func (t *OpensearchHandlerTestSuite) TestRoleDelete() {
-
 	httpmock.RegisterResponder("DELETE", urlRole, func(req *http.Request) (*http.Response, error) {
 		resp := httpmock.NewStringResponse(200, `{}`)
 		return resp, nil
@@ -186,5 +184,4 @@ func (t *OpensearchHandlerTestSuite) TestRoleDiff() {
 	}
 	assert.True(t.T(), diff.IsEmpty())
 	assert.Equal(t.T(), actual, diff.Patched)
-
 }

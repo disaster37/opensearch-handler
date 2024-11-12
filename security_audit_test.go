@@ -14,7 +14,6 @@ import (
 var urlAudit = fmt.Sprintf("%s/_plugins/_security/api/audit", baseURL)
 
 func (t *OpensearchHandlerTestSuite) TestAuditGet() {
-
 	audit := &opensearch.SecurityGetAuditResponse{
 		Config: opensearch.SecurityAudit{
 			Enabled: ptr.To[bool](true),
@@ -45,7 +44,6 @@ func (t *OpensearchHandlerTestSuite) TestAuditGet() {
 }
 
 func (t *OpensearchHandlerTestSuite) TestAuditUpdate() {
-
 	urlAuditUpdate := fmt.Sprintf("%s/config", urlAudit)
 
 	audit := &opensearch.SecurityAudit{
@@ -69,7 +67,6 @@ func (t *OpensearchHandlerTestSuite) TestAuditUpdate() {
 	err = t.opensearchHandler.SecurityAuditUpdate(audit)
 	assert.Error(t.T(), err)
 }
-
 
 func (t *OpensearchHandlerTestSuite) TestAuditDiff() {
 	var actual, expected, original *opensearch.SecurityAudit
@@ -128,11 +125,11 @@ func (t *OpensearchHandlerTestSuite) TestAuditDiff() {
 			IgnoreUsers: []string{"test"},
 		},
 	}
-	actual =&opensearch.SecurityAudit{
+	actual = &opensearch.SecurityAudit{
 		Enabled: ptr.To[bool](true),
 		Audit: opensearch.SecurityAuditSpec{
 			IgnoreUsers: []string{"test"},
-			EnableRest: ptr.To[bool](true),
+			EnableRest:  ptr.To[bool](true),
 		},
 	}
 
@@ -142,5 +139,4 @@ func (t *OpensearchHandlerTestSuite) TestAuditDiff() {
 	}
 	assert.True(t.T(), diff.IsEmpty())
 	assert.Equal(t.T(), actual, diff.Patched)
-
 }

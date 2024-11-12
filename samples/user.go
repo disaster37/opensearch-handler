@@ -8,7 +8,6 @@ import (
 )
 
 func ManageUser() {
-
 	var (
 		user         *opensearch.SecurityUser
 		userToCreate *opensearch.SecurityPutUser
@@ -73,5 +72,4 @@ func ManageUser() {
 	if err = client.UserDelete("test"); err != nil {
 		log.Fatalf("Error when delete user: %s", err.Error())
 	}
-
 }

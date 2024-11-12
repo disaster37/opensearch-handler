@@ -8,7 +8,6 @@ import (
 )
 
 func ManageRoleMapping() {
-
 	var (
 		roleMapping         *opensearch.SecurityRoleMapping
 		expectedRoleMapping *opensearch.SecurityPutRoleMapping
@@ -63,5 +62,4 @@ func ManageRoleMapping() {
 	if err = client.RoleMappingDelete("test"); err != nil {
 		log.Fatalf("Error when delete role mapping: %s", err.Error())
 	}
-
 }

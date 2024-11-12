@@ -11,7 +11,6 @@ import (
 
 // UserCreate permit to create new user
 func (h *OpensearchHandlerImpl) UserUpdate(name string, user *opensearch.SecurityPutUser) (err error) {
-
 	if _, err = h.client.SecurityPutUser(name).Body(user).Do(context.Background()); err != nil {
 		return errors.Wrapf(err, "Error when update user '%s'", name)
 	}
@@ -21,7 +20,6 @@ func (h *OpensearchHandlerImpl) UserUpdate(name string, user *opensearch.Securit
 
 // UserDelete permit to delete the user
 func (h *OpensearchHandlerImpl) UserDelete(name string) (err error) {
-
 	if _, err = h.client.SecurityDeleteUser(name).Do(context.Background()); err != nil {
 		if opensearch.IsNotFound(err) {
 			return nil
@@ -34,7 +32,6 @@ func (h *OpensearchHandlerImpl) UserDelete(name string) (err error) {
 
 // UserGet permit to get the user
 func (h *OpensearchHandlerImpl) UserGet(name string) (user *opensearch.SecurityUser, err error) {
-
 	userResp, err := h.client.SecurityGetUser(name).Do(context.Background())
 	if err != nil {
 		if opensearch.IsNotFound(err) {

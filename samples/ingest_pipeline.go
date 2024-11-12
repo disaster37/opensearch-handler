@@ -7,7 +7,6 @@ import (
 )
 
 func ManageIngestPipeline() {
-
 	var (
 		ingestPipeline         *opensearch.IngestGetPipeline
 		expectedIngestPipeline *opensearch.IngestGetPipeline
@@ -81,5 +80,4 @@ func ManageIngestPipeline() {
 	if err = client.IngestPipelineDelete("test"); err != nil {
 		log.Fatalf("Error when delete ingest pipeline: %s", err.Error())
 	}
-
 }

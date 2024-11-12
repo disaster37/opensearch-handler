@@ -13,7 +13,6 @@ import (
 var urlRoleMapping = fmt.Sprintf("%s/_plugins/_security/api/rolesmapping/test", baseURL)
 
 func (t *OpensearchHandlerTestSuite) TestRoleMappingGet() {
-
 	result := make(opensearch.SecurityGetRoleMappingResponse)
 	roleMapping := &opensearch.SecurityRoleMapping{
 		SecurityPutRoleMapping: opensearch.SecurityPutRoleMapping{
@@ -43,7 +42,6 @@ func (t *OpensearchHandlerTestSuite) TestRoleMappingGet() {
 }
 
 func (t *OpensearchHandlerTestSuite) TestRoleMappingDelete() {
-
 	httpmock.RegisterResponder("DELETE", urlRoleMapping, func(req *http.Request) (*http.Response, error) {
 		resp := httpmock.NewStringResponse(200, `{}`)
 		return resp, nil
@@ -137,5 +135,4 @@ func (t *OpensearchHandlerTestSuite) TestRoleMappingDiff() {
 	}
 	assert.True(t.T(), diff.IsEmpty())
 	assert.Equal(t.T(), actual, diff.Patched)
-
 }

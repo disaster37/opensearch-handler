@@ -13,7 +13,6 @@ import (
 var urlIndexIngestPipeline = fmt.Sprintf("%s/_ingest/pipeline/test", baseURL)
 
 func (t *OpensearchHandlerTestSuite) TestIngestPipelineGet() {
-
 	result := opensearch.IngestGetPipelineResponse{}
 	pipeline := &opensearch.IngestGetPipeline{
 		Description: "test",
@@ -41,7 +40,6 @@ func (t *OpensearchHandlerTestSuite) TestIngestPipelineGet() {
 }
 
 func (t *OpensearchHandlerTestSuite) TestIngestPilelineDelete() {
-
 	httpmock.RegisterResponder("DELETE", urlIndexIngestPipeline, func(req *http.Request) (*http.Response, error) {
 		resp := httpmock.NewStringResponse(200, `{}`)
 		return resp, nil
@@ -191,5 +189,4 @@ func (t *OpensearchHandlerTestSuite) TestIngestPipelineDiff() {
 	}
 	assert.True(t.T(), diff.IsEmpty())
 	assert.Equal(t.T(), actual, diff.Patched)
-
 }

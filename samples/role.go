@@ -8,7 +8,6 @@ import (
 )
 
 func ManageRole() {
-
 	var (
 		role         *opensearch.SecurityRole
 		expectedRole *opensearch.SecurityPutRole
@@ -84,5 +83,4 @@ func ManageRole() {
 	if err = client.RoleDelete("test"); err != nil {
 		log.Fatalf("Error when delete role: %s", err.Error())
 	}
-
 }

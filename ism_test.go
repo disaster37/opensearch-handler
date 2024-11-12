@@ -14,7 +14,6 @@ import (
 var urlIsm = fmt.Sprintf("%s/_plugins/_ism/policies/test", baseURL)
 
 func (t *OpensearchHandlerTestSuite) TestIsmGet() {
-
 	ismResp := &opensearch.IsmGetPolicyResponse{
 		Id:             "qsqds",
 		Version:        1,
@@ -86,7 +85,6 @@ func (t *OpensearchHandlerTestSuite) TestIsmGet() {
 }
 
 func (t *OpensearchHandlerTestSuite) TestIsmDelete() {
-
 	httpmock.RegisterResponder("DELETE", urlIsm, func(req *http.Request) (*http.Response, error) {
 		resp := httpmock.NewStringResponse(200, `{}`)
 		return resp, nil
@@ -164,7 +162,6 @@ func (t *OpensearchHandlerTestSuite) TestIsmCreate() {
 }
 
 func (t *OpensearchHandlerTestSuite) TestIsmUpdate() {
-
 	urlIsmPut := fmt.Sprintf("%s?if_seq_no=7&if_primary_term=1", urlIsm)
 
 	ismPolicy := &opensearch.IsmPutPolicy{
@@ -680,5 +677,4 @@ func (t *OpensearchHandlerTestSuite) TestIsmDiff() {
 	}
 	assert.True(t.T(), diff.IsEmpty())
 	assert.Equal(t.T(), `{}`, string(diff.Patch))
-
 }

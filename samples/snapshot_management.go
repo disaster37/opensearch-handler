@@ -8,7 +8,6 @@ import (
 )
 
 func ManageSnapshotManagement() {
-
 	var (
 		snapshotManagement         *opensearch.SmGetPolicyResponse
 		expectedSnapshotManagement *opensearch.SmPutPolicy
@@ -193,5 +192,4 @@ func ManageSnapshotManagement() {
 	if err = client.SmDelete("test"); err != nil {
 		log.Fatalf("Error when delete snapshotManagement: %s", err.Error())
 	}
-
 }

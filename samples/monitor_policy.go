@@ -7,7 +7,6 @@ import (
 )
 
 func ManageMonitor() {
-
 	var (
 		monitor         *opensearch.AlertingGetMonitorResponse
 		expectedMonitor *opensearch.AlertingMonitor
@@ -73,5 +72,4 @@ func ManageMonitor() {
 	if err = client.MonitorDelete("test"); err != nil {
 		log.Fatalf("Error when delete monitor: %s", err.Error())
 	}
-
 }

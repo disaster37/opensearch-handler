@@ -16,6 +16,7 @@ func (h *OpensearchHandlerImpl) MonitorCreate(monitor *opensearch.AlertingMonito
 
 	return nil
 }
+
 func (h *OpensearchHandlerImpl) MonitorUpdate(id string, sequenceNumber int64, pimaryTerm int64, monitor *opensearch.AlertingMonitor) (err error) {
 	if _, err = h.client.AlertingPutMonitor(id).SequenceNumber(sequenceNumber).PrimaryTerm(pimaryTerm).Body(monitor).Do(context.Background()); err != nil {
 		return errors.Wrapf(err, "Error when update monitor '%s'", monitor.Name)
@@ -23,6 +24,7 @@ func (h *OpensearchHandlerImpl) MonitorUpdate(id string, sequenceNumber int64, p
 
 	return nil
 }
+
 func (h *OpensearchHandlerImpl) MonitorDelete(id string) (err error) {
 	if _, err = h.client.AlertingDeleteMonitor(id).Do(context.Background()); err != nil {
 		if opensearch.IsNotFound(err) {
@@ -32,6 +34,7 @@ func (h *OpensearchHandlerImpl) MonitorDelete(id string) (err error) {
 	}
 	return
 }
+
 func (h *OpensearchHandlerImpl) MonitorGet(name string) (monitor *opensearch.AlertingGetMonitorResponse, err error) {
 	res, err := h.client.AlertingSearchMonitor().SearchByName(name).Do(context.Background())
 	if err != nil {
@@ -46,9 +49,9 @@ func (h *OpensearchHandlerImpl) MonitorGet(name string) (monitor *opensearch.Ale
 		return nil, errors.Wrapf(err, "Error when get monitor '%s' (%s)", name, res[0].Id)
 	}
 
-
 	return resGet, nil
 }
+
 func (h *OpensearchHandlerImpl) MonitorDiff(actualObject, expectedObject, originalObject *opensearch.AlertingMonitor) (patchResult *patch.PatchResult, err error) {
 	// If not yet exist
 	if actualObject == nil {

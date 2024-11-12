@@ -14,7 +14,6 @@ import (
 var urlTenant = fmt.Sprintf("%s/_plugins/_security/api/tenants/test", baseURL)
 
 func (t *OpensearchHandlerTestSuite) TestTenantGet() {
-
 	result := make(map[string]opensearch.SecurityTenant)
 	tenant := &opensearch.SecurityTenant{
 		SecurityPutTenant: opensearch.SecurityPutTenant{
@@ -44,7 +43,6 @@ func (t *OpensearchHandlerTestSuite) TestTenantGet() {
 }
 
 func (t *OpensearchHandlerTestSuite) TestTenantDelete() {
-
 	httpmock.RegisterResponder("DELETE", urlTenant, func(req *http.Request) (*http.Response, error) {
 		resp := httpmock.NewStringResponse(200, `{}`)
 		return resp, nil
@@ -134,5 +132,4 @@ func (t *OpensearchHandlerTestSuite) TestTenantDiff() {
 	}
 	assert.True(t.T(), diff.IsEmpty())
 	assert.Equal(t.T(), actual, diff.Patched)
-
 }

@@ -13,7 +13,6 @@ import (
 var urlSnapshotRepository = fmt.Sprintf("%s/_snapshot/test", baseURL)
 
 func (t *OpensearchHandlerTestSuite) TestSnapshotRespositoryGet() {
-
 	snapshotRepository := make(opensearch.SnapshotGetRepositoryResponse)
 	snapshotRepository["test"] = &opensearch.SnapshotRepositoryMetaData{
 		Type: "fs",
@@ -43,7 +42,6 @@ func (t *OpensearchHandlerTestSuite) TestSnapshotRespositoryGet() {
 }
 
 func (t *OpensearchHandlerTestSuite) TestSnapshotRepositoryDelete() {
-
 	httpmock.RegisterResponder("DELETE", urlSnapshotRepository, func(req *http.Request) (*http.Response, error) {
 		resp := httpmock.NewStringResponse(200, `{}`)
 		return resp, nil
@@ -61,7 +59,6 @@ func (t *OpensearchHandlerTestSuite) TestSnapshotRepositoryDelete() {
 }
 
 func (t *OpensearchHandlerTestSuite) TestSnapshotRepositoryUpdate() {
-
 	snapshotRepository := &opensearch.SnapshotRepositoryMetaData{
 		Type: "fs",
 		Settings: map[string]interface{}{
@@ -154,5 +151,4 @@ func (t *OpensearchHandlerTestSuite) TestSnapshotRepositoryDiff() {
 	}
 	assert.True(t.T(), diff.IsEmpty())
 	assert.Equal(t.T(), actual, diff.Patched)
-
 }

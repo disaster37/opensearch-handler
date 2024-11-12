@@ -11,18 +11,15 @@ import (
 
 // IngestPipelineUpdate permit to create or update ingest pipeline
 func (h *OpensearchHandlerImpl) IngestPipelineUpdate(name string, pipeline *opensearch.IngestGetPipeline) (err error) {
-
 	if _, err = h.client.IngestPutPipeline(name).BodyJson(pipeline).Do(context.Background()); err != nil {
 		return errors.Wrapf(err, "Error when update ingest pipeline '%s'", name)
 	}
 
 	return nil
-
 }
 
 // IngestPipelineDelete permit to delete ingest pipeline
 func (h *OpensearchHandlerImpl) IngestPipelineDelete(name string) (err error) {
-
 	if _, err = h.client.IngestDeletePipeline(name).Do(context.Background()); err != nil {
 		if opensearch.IsNotFound(err) {
 			return nil
@@ -35,7 +32,6 @@ func (h *OpensearchHandlerImpl) IngestPipelineDelete(name string) (err error) {
 
 // IngestPipelineGet permit to get ingest pipeline
 func (h *OpensearchHandlerImpl) IngestPipelineGet(name string) (pipeline *opensearch.IngestGetPipeline, err error) {
-
 	pipelineResp, err := h.client.IngestGetPipeline(name).Do(context.Background())
 	if err != nil {
 		if opensearch.IsNotFound(err) {

@@ -14,7 +14,6 @@ import (
 var urlMonitor = fmt.Sprintf("%s/_plugins/_alerting/monitors/test", baseURL)
 
 func (t *OpensearchHandlerTestSuite) TestMonitorGet() {
-
 	searchUrl := fmt.Sprintf("%s/_plugins/_alerting/monitors/_search", baseURL)
 
 	monitorGet := &opensearch.AlertingGetMonitorResponse{
@@ -68,7 +67,6 @@ func (t *OpensearchHandlerTestSuite) TestMonitorGet() {
 }
 
 func (t *OpensearchHandlerTestSuite) TestMonitorDelete() {
-
 	httpmock.RegisterResponder("DELETE", urlMonitor, func(req *http.Request) (*http.Response, error) {
 		resp := httpmock.NewStringResponse(200, `{}`)
 		return resp, nil
@@ -86,7 +84,6 @@ func (t *OpensearchHandlerTestSuite) TestMonitorDelete() {
 }
 
 func (t *OpensearchHandlerTestSuite) TestMonitorCreate() {
-
 	urlMonitorPost := fmt.Sprintf("%s/_plugins/_alerting/monitors", baseURL)
 
 	monitor := &opensearch.AlertingMonitor{
@@ -196,5 +193,4 @@ func (t *OpensearchHandlerTestSuite) TestMonitorDiff() {
 	}
 	assert.True(t.T(), diff.IsEmpty())
 	assert.Equal(t.T(), actual, diff.Patched)
-
 }

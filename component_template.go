@@ -12,7 +12,6 @@ import (
 
 // ComponentTemplateUpdate permit to update component template
 func (h *OpensearchHandlerImpl) ComponentTemplateUpdate(name string, component *opensearch.IndicesGetComponentTemplate) (err error) {
-
 	if _, err := h.client.IndexPutComponentTemplate(name).BodyJson(component).Do(context.Background()); err != nil {
 		return errors.Wrapf(err, "Error when update Component template '%s'", name)
 	}
@@ -22,7 +21,6 @@ func (h *OpensearchHandlerImpl) ComponentTemplateUpdate(name string, component *
 
 // ComponentTemplateDelete permit to delete component template
 func (h *OpensearchHandlerImpl) ComponentTemplateDelete(name string) (err error) {
-
 	if _, err = h.client.IndexDeleteComponentTemplate(name).Do(context.Background()); err != nil {
 		if opensearch.IsNotFound(err) {
 			return nil
@@ -31,12 +29,10 @@ func (h *OpensearchHandlerImpl) ComponentTemplateDelete(name string) (err error)
 	}
 
 	return nil
-
 }
 
 // ComponentTemplateGet permit to get component template
 func (h *OpensearchHandlerImpl) ComponentTemplateGet(name string) (component *opensearch.IndicesGetComponentTemplate, err error) {
-
 	indexComponentTemplateResp, err := h.client.IndexGetComponentTemplate(name).Do(context.Background())
 	if err != nil {
 		if opensearch.IsNotFound(err) {

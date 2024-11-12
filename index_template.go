@@ -12,18 +12,15 @@ import (
 
 // IndexTemplateUpdate permit to create or update index template
 func (h *OpensearchHandlerImpl) IndexTemplateUpdate(name string, template *opensearch.IndicesGetIndexTemplate) (err error) {
-
 	if _, err = h.client.IndexPutIndexTemplate(name).BodyJson(template).Do(context.Background()); err != nil {
 		return errors.Wrapf(err, "Error when update index template '%s'", name)
 	}
 
 	return nil
-
 }
 
 // IndexTemplateDelete permit to delete index template
 func (h *OpensearchHandlerImpl) IndexTemplateDelete(name string) (err error) {
-
 	if _, err = h.client.IndexDeleteIndexTemplate(name).Do(context.Background()); err != nil {
 		if opensearch.IsNotFound(err) {
 			return nil
@@ -36,7 +33,6 @@ func (h *OpensearchHandlerImpl) IndexTemplateDelete(name string) (err error) {
 
 // IndexTemplateGet permit to get index template
 func (h *OpensearchHandlerImpl) IndexTemplateGet(name string) (template *opensearch.IndicesGetIndexTemplate, err error) {
-
 	indexTemplate, err := h.client.IndexGetIndexTemplate(name).Do(context.Background())
 	if err != nil {
 		if opensearch.IsNotFound(err) {

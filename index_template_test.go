@@ -13,7 +13,6 @@ import (
 var urlIndexTemplate = fmt.Sprintf("%s/_index_template/test", baseURL)
 
 func (t *OpensearchHandlerTestSuite) TestIndexTemplateGet() {
-
 	result := &opensearch.IndicesGetIndexTemplateResponse{}
 	template := &opensearch.IndicesGetIndexTemplate{
 		IndexPatterns: []string{"test-index-template"},
@@ -47,7 +46,6 @@ func (t *OpensearchHandlerTestSuite) TestIndexTemplateGet() {
 }
 
 func (t *OpensearchHandlerTestSuite) TestIndexTemplateDelete() {
-
 	httpmock.RegisterResponder("DELETE", urlIndexTemplate, func(req *http.Request) (*http.Response, error) {
 		resp := httpmock.NewStringResponse(200, `{}`)
 		return resp, nil
@@ -184,5 +182,4 @@ func (t *OpensearchHandlerTestSuite) TestIndexTemplateDiff() {
 	}
 	assert.True(t.T(), diff.IsEmpty())
 	assert.Equal(t.T(), actual, diff.Patched)
-
 }

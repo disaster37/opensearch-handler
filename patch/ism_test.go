@@ -10,7 +10,6 @@ import (
 )
 
 func TestCleanIsmTemplate(t *testing.T) {
-
 	actual := &opensearch.IsmPutPolicy{
 		Policy: opensearch.IsmPolicyBase{
 			ID:           ptr.To[string]("policy-test"),
@@ -182,5 +181,4 @@ func TestCleanIsmTemplate(t *testing.T) {
 	acualByte, expectedByte, err = CleanIsmTemplate(acualByte, expectedByte)
 	assert.NoError(t, err)
 	assert.Equal(t, string(expectedByte), string(acualByte))
-
 }

@@ -7,7 +7,6 @@ import (
 )
 
 func ManageSnapshotRepository() {
-
 	var (
 		snapshotRepository         *opensearch.SnapshotRepositoryMetaData
 		expectedSnapshotRepository *opensearch.SnapshotRepositoryMetaData
@@ -69,5 +68,4 @@ func ManageSnapshotRepository() {
 	if err = client.SnapshotRepositoryDelete("test"); err != nil {
 		log.Fatalf("Error when delete snapshot repository: %s", err.Error())
 	}
-
 }

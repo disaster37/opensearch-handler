@@ -8,7 +8,6 @@ import (
 )
 
 func ManageAuditConfig() {
-
 	var (
 		auditConfig         *opensearch.SecurityGetAuditResponse
 		expectedAuditConfig *opensearch.SecurityAudit
@@ -67,5 +66,4 @@ func ManageAuditConfig() {
 			log.Fatalf("Error when update audit config: %s", err.Error())
 		}
 	}
-
 }

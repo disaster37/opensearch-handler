@@ -7,7 +7,6 @@ import (
 )
 
 func ManageIndexTemplate() {
-
 	var (
 		indexTemplate         *opensearch.IndicesGetIndexTemplate
 		expectedIndexTemplate *opensearch.IndicesGetIndexTemplate
@@ -78,5 +77,4 @@ func ManageIndexTemplate() {
 	if err = client.SnapshotRepositoryDelete("test"); err != nil {
 		log.Fatalf("Error when delete index template: %s", err.Error())
 	}
-
 }

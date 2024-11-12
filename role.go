@@ -11,7 +11,6 @@ import (
 
 // RoleUpdate permit to update role
 func (h *OpensearchHandlerImpl) RoleUpdate(name string, role *opensearch.SecurityPutRole) (err error) {
-
 	if _, err = h.client.SecurityPutRole(name).Body(role).Do(context.Background()); err != nil {
 		return errors.Wrapf(err, "Error when update role '%s'", name)
 	}
@@ -21,7 +20,6 @@ func (h *OpensearchHandlerImpl) RoleUpdate(name string, role *opensearch.Securit
 
 // RoleDelete permit to delete role
 func (h *OpensearchHandlerImpl) RoleDelete(name string) (err error) {
-
 	if _, err = h.client.SecurityDeleteRole(name).Do(context.Background()); err != nil {
 		if opensearch.IsNotFound(err) {
 			return nil
@@ -34,7 +32,6 @@ func (h *OpensearchHandlerImpl) RoleDelete(name string) (err error) {
 
 // RoleGet permit to get role
 func (h *OpensearchHandlerImpl) RoleGet(name string) (role *opensearch.SecurityRole, err error) {
-
 	roleResp, err := h.client.SecurityGetRole(name).Do(context.Background())
 	if err != nil {
 		if opensearch.IsNotFound(err) {

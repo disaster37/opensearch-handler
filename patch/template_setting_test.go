@@ -9,7 +9,6 @@ import (
 )
 
 func TestConvertComponentTemplateSetting(t *testing.T) {
-
 	actual := &IndicesGetComponentTemplate{
 		IndicesGetComponentTemplate: opensearch.IndicesGetComponentTemplate{
 			Template: &opensearch.IndicesGetComponentTemplateData{
@@ -57,11 +56,9 @@ func TestConvertComponentTemplateSetting(t *testing.T) {
 	acualByte, expectedByte, err = ConvertComponentTemplateSetting(acualByte, expectedByte)
 	assert.NoError(t, err)
 	assert.Equal(t, expectedByte, acualByte)
-
 }
 
 func TestConvertIndexTemplateSetting(t *testing.T) {
-
 	actual := &IndicesGetIndexTemplate{
 		IndicesGetIndexTemplate: opensearch.IndicesGetIndexTemplate{
 			Template: &opensearch.IndicesGetIndexTemplateData{
@@ -109,5 +106,4 @@ func TestConvertIndexTemplateSetting(t *testing.T) {
 	acualByte, expectedByte, err = ConvertIndexTemplateSetting(acualByte, expectedByte)
 	assert.NoError(t, err)
 	assert.Equal(t, expectedByte, acualByte)
-
 }

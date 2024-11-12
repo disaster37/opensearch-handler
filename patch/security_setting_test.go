@@ -9,7 +9,6 @@ import (
 )
 
 func TestRemoveEnvironmentVariableContendTest(t *testing.T) {
-
 	actual := &opensearch.SecurityGetConfigResponse{
 		Config: opensearch.SecurityConfig{
 			Dynamic: opensearch.SecurityConfigDynamic{
@@ -81,5 +80,4 @@ func TestRemoveEnvironmentVariableContendTest(t *testing.T) {
 	acualByte, expectedByte, err = RemoveEnvironmentVariableContend(acualByte, expectedByte)
 	assert.NoError(t, err)
 	assert.Equal(t, expectedByte, acualByte)
-
 }
