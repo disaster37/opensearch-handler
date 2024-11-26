@@ -35,10 +35,6 @@ type OpensearchHandler struct {
 	// +private
 	Src *dagger.Directory
 
-	// The golang base image
-	// +private
-	BaseImage *dagger.Container
-
 	// +private
 	GolangModule *dagger.Golang
 }
@@ -49,21 +45,9 @@ func New(
 	// +required
 	src *dagger.Directory,
 ) (*OpensearchHandler, error) {
-	// Compute image because of base is not optional
-	version, err := inspectModVersion(context.Background(), src)
-	if err != nil {
-		return nil, err
-	}
-	base := defaultImage(version)
-	base = mountCaches(ctx, base).
-		WithDirectory(goWorkDir, src).
-		WithWorkdir(goWorkDir).
-		WithoutEntrypoint()
-
 	return &OpensearchHandler{
 		Src:          src,
-		GolangModule: dag.Golang(base, src),
-		BaseImage:    base,
+		GolangModule: dag.Golang(src),
 	}, nil
 }
 
@@ -138,7 +122,7 @@ func (h *OpensearchHandler) Format(
 func (h *OpensearchHandler) Test(
 	ctx context.Context,
 ) *dagger.File {
-	return h.BaseImage.
+	return h.GolangModule.Container().
 		WithExec(helper.ForgeCommand("go test ./... -v -count 1 -parallel 1 -race -coverprofile=coverage.out -covermode=atomic -timeout 120m")).
 		File("coverage.out")
 }
@@ -180,8 +164,8 @@ func (h *OpensearchHandler) CodeCov(
 func (h *OpensearchHandler) GenerateMock(
 	ctx context.Context,
 ) *dagger.Directory {
-	return h.BaseImage.WithExec(helper.ForgeScript(`
+	return h.GolangModule.Container().WithExec(helper.ForgeScript(`
 go install go.uber.org/mock/mockgen@%s
 mockgen --build_flags=--mod=mod -destination=mocks/opensearch_handler.go -package=mocks github.com/disaster37/opensearch-handler/v2 OpensearchHandler
-	`, mockgenVersion)).Directory(goWorkDir)
+	`, mockgenVersion)).Directory(".")
 }
