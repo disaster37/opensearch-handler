@@ -1,0 +1,24 @@
+package samples
+
+import "log"
+
+func ManageClusterSetting() {
+	client := GetClient()
+
+	if err := client.DisableRoutingRebalance(); err != nil {
+		log.Fatalf("Error when disable routing rebalance: %s", err.Error())
+	}
+
+	if err := client.EnableRoutingRebalance(); err != nil {
+		log.Fatalf("Error when enable routing rebalance: %s", err.Error())
+	}
+
+	if err := client.DisableRoutingAllocation(); err != nil {
+		log.Fatalf("Error when disable routing allocation: %s", err.Error())
+	}
+
+	if err := client.EnableRoutingAllocation(); err != nil {
+		log.Fatalf("Error when enable routing allocation: %s", err.Error())
+	}
+
+}

@@ -97,6 +97,10 @@ type OpensearchHandler interface {
 
 	// Cluster scope
 	ClusterHealth() (health *opensearch.ClusterHealthResponse, err error)
+	EnableRoutingRebalance() (err error)
+	DisableRoutingRebalance() (err error)
+	EnableRoutingAllocation() (err error)
+	DisableRoutingAllocation() (err error)
 
 	SetLogger(log *logrus.Entry)
 }

@@ -68,6 +68,10 @@ You can look [sample](samples/monitor_policy.go)
 
 You can look [sample](samples/cluster_health.go)
 
+### Manage cluster settings
+
+You can look [sample](samples/cluster_setting.go)
+
 ## Contribute
 
 PR are always welcome here!

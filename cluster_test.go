@@ -56,3 +56,83 @@ func (t *OpensearchHandlerTestSuite) TestClusterHealth() {
 	_, err = t.opensearchHandler.ClusterHealth()
 	assert.Error(t.T(), err)
 }
+
+func (t *OpensearchHandlerTestSuite) EnableRoutingRebalance() {
+
+	urlSetting := fmt.Sprintf("%s/settings", urlCluster)
+
+	httpmock.RegisterResponder("PUT", urlSetting, func(req *http.Request) (*http.Response, error) {
+		resp := httpmock.NewStringResponse(200, `{}`)
+		return resp, nil
+	})
+
+	err := t.opensearchHandler.EnableRoutingRebalance()
+	if err != nil {
+		t.Fail(err.Error())
+	}
+
+	// When error
+	httpmock.RegisterResponder("PUT", urlSetting, httpmock.NewErrorResponder(errors.New("fack error")))
+	err = t.opensearchHandler.EnableRoutingRebalance()
+	assert.Error(t.T(), err)
+}
+
+func (t *OpensearchHandlerTestSuite) DisableRoutingRebalance() {
+
+	urlSetting := fmt.Sprintf("%s/settings", urlCluster)
+
+	httpmock.RegisterResponder("PUT", urlSetting, func(req *http.Request) (*http.Response, error) {
+		resp := httpmock.NewStringResponse(200, `{}`)
+		return resp, nil
+	})
+
+	err := t.opensearchHandler.DisableRoutingRebalance()
+	if err != nil {
+		t.Fail(err.Error())
+	}
+
+	// When error
+	httpmock.RegisterResponder("PUT", urlSetting, httpmock.NewErrorResponder(errors.New("fack error")))
+	err = t.opensearchHandler.DisableRoutingRebalance()
+	assert.Error(t.T(), err)
+}
+
+func (t *OpensearchHandlerTestSuite) EnableRoutingAllocation() {
+
+	urlSetting := fmt.Sprintf("%s/settings", urlCluster)
+
+	httpmock.RegisterResponder("PUT", urlSetting, func(req *http.Request) (*http.Response, error) {
+		resp := httpmock.NewStringResponse(200, `{}`)
+		return resp, nil
+	})
+
+	err := t.opensearchHandler.EnableRoutingAllocation()
+	if err != nil {
+		t.Fail(err.Error())
+	}
+
+	// When error
+	httpmock.RegisterResponder("PUT", urlSetting, httpmock.NewErrorResponder(errors.New("fack error")))
+	err = t.opensearchHandler.EnableRoutingAllocation()
+	assert.Error(t.T(), err)
+}
+
+func (t *OpensearchHandlerTestSuite) DisableRoutingAllocation() {
+
+	urlSetting := fmt.Sprintf("%s/settings", urlCluster)
+
+	httpmock.RegisterResponder("PUT", urlSetting, func(req *http.Request) (*http.Response, error) {
+		resp := httpmock.NewStringResponse(200, `{}`)
+		return resp, nil
+	})
+
+	err := t.opensearchHandler.DisableRoutingAllocation()
+	if err != nil {
+		t.Fail(err.Error())
+	}
+
+	// When error
+	httpmock.RegisterResponder("PUT", urlSetting, httpmock.NewErrorResponder(errors.New("fack error")))
+	err = t.opensearchHandler.DisableRoutingAllocation()
+	assert.Error(t.T(), err)
+}
