@@ -47,7 +47,7 @@ func New(
 ) (*OpensearchHandler, error) {
 	return &OpensearchHandler{
 		Src:          src,
-		GolangModule: dag.Golang(src),
+		GolangModule: dag.Golang(src.WithoutDirectory("ci")),
 	}, nil
 }
 
@@ -62,14 +62,29 @@ func (h *OpensearchHandler) Ci(
 	// +optional
 	codeCoveToken *dagger.Secret,
 
+	// The git branch where you should to push
+	// You need to provide it when you are on PullRequest or on Tag
+	// +optional
+	gitBranch string,
+
+	// Set true if current build is a tag
+	// It will use the stable and alpha channel
+	// alpha channel only instead
+	// +optional
+	isTag bool,
+
 	// The git token
 	// +optional
 	gitToken *dagger.Secret,
 ) (dir *dagger.Directory, err error) {
 	var stdout string
 
+	h.GolangModule = dag.Golang(h.Src.WithoutDirectory("ci"), dagger.GolangOpts{Base: h.GolangModule.Container().WithExec([]string{"go", "mod", "tidy"})})
+
 	// Build
-	h.Build(ctx)
+	if _, err = h.Build(ctx).Sync(ctx); err != nil {
+		return nil, errors.Wrap(err, "Error when build project")
+	}
 
 	// Lint code
 	stdout, err = h.Lint(ctx)
@@ -96,7 +111,25 @@ func (h *OpensearchHandler) Ci(
 			return nil, errors.Wrapf(err, "Error when upload report on CodeCov: %s", stdout)
 		}
 
-		if _, err = dag.Git().SetConfig(gitUsername, gitEmail, dagger.GitSetConfigOpts{BaseRepoURL: "github.com", Token: gitToken}).SetRepo(dir, dagger.GitSetRepoOpts{Branch: defaultGitBranch}).CommitAndPush(ctx, "Commit from CI. skip ci"); err != nil {
+		git := dag.GitModule(dir.WithDirectory("ci", h.Src.Directory("ci")), dagger.GitModuleOpts{Ci: "github"}).
+			SetConfig(dagger.GitModuleSetConfigOpts{
+				Username: gitUsername,
+				Email:    gitEmail,
+			})
+
+		if isTag {
+			gitBranch = defaultGitBranch
+		}
+
+		if _, err = git.CommitAndPush(
+			ctx,
+			gitToken,
+			dagger.GitModuleCommitAndPushOpts{
+				BranchName: gitBranch,
+				GitRepoURL: "https://github.com/disaster37/opensearch.git",
+				Message:    "Commit from CI",
+			},
+		); err != nil {
 			return nil, errors.Wrap(err, "Error when commit and push files change")
 		}
 	}
@@ -154,8 +187,7 @@ func (h *OpensearchHandler) CodeCov(
 		src,
 		token,
 		dagger.CodecovUploadOpts{
-			Files:   []string{"coverage.out"},
-			Verbose: true,
+			Files: []string{"coverage.out"},
 		},
 	)
 }
