@@ -72,6 +72,10 @@ You can look [sample](samples/cluster_health.go)
 
 You can look [sample](samples/cluster_setting.go)
 
+### Manage cross cluster replication
+
+You can look [sample](samples/cross_cluster_replication.go)
+
 ## Contribute
 
 PR are always welcome here!

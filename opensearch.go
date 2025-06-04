@@ -95,6 +95,17 @@ type OpensearchHandler interface {
 	MonitorGet(name string) (monitor *opensearch.AlertingGetMonitorResponse, err error)
 	MonitorDiff(actualObject, expectedObject, originalObject *opensearch.AlertingMonitor) (patchResult *patch.PatchResult, err error)
 
+	// Cross Cluster Replication scope
+	CrossClusterReplicationStart(name string, ccrRule *opensearch.CcrRule) (err error)
+	CrossClusterReplicationStop(name string) (err error)
+	CrossClusterReplicationPause(name string) (err error)
+	CrossClusterReplicationStatus(name string) (ccrStatus *opensearch.CcrStatusRuleResponse, err error)
+	CrossClusterReplicationDiff(actualObject, expectedObject, originalObject *opensearch.CcrRule) (patchResult *patch.PatchResult, err error)
+	CrossClusterReplicationAutoFollowCreate(ccrRule *opensearch.CcrAutoFollowRule) (err error)
+	CrossClusterReplicationAutoFollowStatus(name string) (ccrStatus *opensearch.CcrFollowStatusState, err error)
+	CrossClusterReplicationAutoFollowDiff(actualObject, expectedObject, originalObject *opensearch.CcrAutoFollowRule) (patchResult *patch.PatchResult, err error)
+	CrossClusterReplicationAutoFollowDelete(name, leaderAlias string) (err error)
+
 	// Cluster scope
 	ClusterHealth() (health *opensearch.ClusterHealthResponse, err error)
 	EnableRoutingRebalance() (err error)
