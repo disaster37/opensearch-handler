@@ -5,7 +5,7 @@ go 1.24.0
 require (
 	emperror.dev/errors v0.8.1
 	github.com/disaster37/generic-objectmatcher v1.0.2
-	github.com/disaster37/opensearch/v2 v2.0.13
+	github.com/disaster37/opensearch/v2 v2.0.14
 	github.com/elastic/go-ucfg v0.8.8
 	github.com/google/go-cmp v0.7.0
 	github.com/jarcoal/httpmock v1.4.0
@@ -21,7 +21,7 @@ require (
 	github.com/disaster37/k8s-objectmatcher v1.8.8 // indirect
 	github.com/evanphx/json-patch v5.9.11+incompatible // indirect
 	github.com/fxamacker/cbor/v2 v2.8.0 // indirect
-	github.com/go-logr/logr v1.4.2 // indirect
+	github.com/go-logr/logr v1.4.3 // indirect
 	github.com/go-openapi/jsonpointer v0.21.1 // indirect
 	github.com/go-openapi/jsonreference v0.21.0 // indirect
 	github.com/go-openapi/swag v0.23.1 // indirect
