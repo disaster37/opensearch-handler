@@ -185,6 +185,136 @@ func (mr *MockOpensearchHandlerMockRecorder) ComponentTemplateUpdate(arg0, arg1 
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "ComponentTemplateUpdate", reflect.TypeOf((*MockOpensearchHandler)(nil).ComponentTemplateUpdate), arg0, arg1)
 }
 
+// CrossClusterReplicationAutoFollowCreate mocks base method.
+func (m *MockOpensearchHandler) CrossClusterReplicationAutoFollowCreate(arg0 *opensearch.CcrAutoFollowRule) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "CrossClusterReplicationAutoFollowCreate", arg0)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// CrossClusterReplicationAutoFollowCreate indicates an expected call of CrossClusterReplicationAutoFollowCreate.
+func (mr *MockOpensearchHandlerMockRecorder) CrossClusterReplicationAutoFollowCreate(arg0 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CrossClusterReplicationAutoFollowCreate", reflect.TypeOf((*MockOpensearchHandler)(nil).CrossClusterReplicationAutoFollowCreate), arg0)
+}
+
+// CrossClusterReplicationAutoFollowDelete mocks base method.
+func (m *MockOpensearchHandler) CrossClusterReplicationAutoFollowDelete(arg0, arg1 string) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "CrossClusterReplicationAutoFollowDelete", arg0, arg1)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// CrossClusterReplicationAutoFollowDelete indicates an expected call of CrossClusterReplicationAutoFollowDelete.
+func (mr *MockOpensearchHandlerMockRecorder) CrossClusterReplicationAutoFollowDelete(arg0, arg1 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CrossClusterReplicationAutoFollowDelete", reflect.TypeOf((*MockOpensearchHandler)(nil).CrossClusterReplicationAutoFollowDelete), arg0, arg1)
+}
+
+// CrossClusterReplicationAutoFollowDiff mocks base method.
+func (m *MockOpensearchHandler) CrossClusterReplicationAutoFollowDiff(arg0, arg1, arg2 *opensearch.CcrAutoFollowRule) (*patch.PatchResult, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "CrossClusterReplicationAutoFollowDiff", arg0, arg1, arg2)
+	ret0, _ := ret[0].(*patch.PatchResult)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// CrossClusterReplicationAutoFollowDiff indicates an expected call of CrossClusterReplicationAutoFollowDiff.
+func (mr *MockOpensearchHandlerMockRecorder) CrossClusterReplicationAutoFollowDiff(arg0, arg1, arg2 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CrossClusterReplicationAutoFollowDiff", reflect.TypeOf((*MockOpensearchHandler)(nil).CrossClusterReplicationAutoFollowDiff), arg0, arg1, arg2)
+}
+
+// CrossClusterReplicationAutoFollowStatus mocks base method.
+func (m *MockOpensearchHandler) CrossClusterReplicationAutoFollowStatus(arg0 string) (*opensearch.CcrFollowStatusState, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "CrossClusterReplicationAutoFollowStatus", arg0)
+	ret0, _ := ret[0].(*opensearch.CcrFollowStatusState)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// CrossClusterReplicationAutoFollowStatus indicates an expected call of CrossClusterReplicationAutoFollowStatus.
+func (mr *MockOpensearchHandlerMockRecorder) CrossClusterReplicationAutoFollowStatus(arg0 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CrossClusterReplicationAutoFollowStatus", reflect.TypeOf((*MockOpensearchHandler)(nil).CrossClusterReplicationAutoFollowStatus), arg0)
+}
+
+// CrossClusterReplicationDiff mocks base method.
+func (m *MockOpensearchHandler) CrossClusterReplicationDiff(arg0, arg1, arg2 *opensearch.CcrRule) (*patch.PatchResult, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "CrossClusterReplicationDiff", arg0, arg1, arg2)
+	ret0, _ := ret[0].(*patch.PatchResult)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// CrossClusterReplicationDiff indicates an expected call of CrossClusterReplicationDiff.
+func (mr *MockOpensearchHandlerMockRecorder) CrossClusterReplicationDiff(arg0, arg1, arg2 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CrossClusterReplicationDiff", reflect.TypeOf((*MockOpensearchHandler)(nil).CrossClusterReplicationDiff), arg0, arg1, arg2)
+}
+
+// CrossClusterReplicationPause mocks base method.
+func (m *MockOpensearchHandler) CrossClusterReplicationPause(arg0 string) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "CrossClusterReplicationPause", arg0)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// CrossClusterReplicationPause indicates an expected call of CrossClusterReplicationPause.
+func (mr *MockOpensearchHandlerMockRecorder) CrossClusterReplicationPause(arg0 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CrossClusterReplicationPause", reflect.TypeOf((*MockOpensearchHandler)(nil).CrossClusterReplicationPause), arg0)
+}
+
+// CrossClusterReplicationStart mocks base method.
+func (m *MockOpensearchHandler) CrossClusterReplicationStart(arg0 string, arg1 *opensearch.CcrRule) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "CrossClusterReplicationStart", arg0, arg1)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// CrossClusterReplicationStart indicates an expected call of CrossClusterReplicationStart.
+func (mr *MockOpensearchHandlerMockRecorder) CrossClusterReplicationStart(arg0, arg1 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CrossClusterReplicationStart", reflect.TypeOf((*MockOpensearchHandler)(nil).CrossClusterReplicationStart), arg0, arg1)
+}
+
+// CrossClusterReplicationStatus mocks base method.
+func (m *MockOpensearchHandler) CrossClusterReplicationStatus(arg0 string) (*opensearch.CcrStatusRuleResponse, error) {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "CrossClusterReplicationStatus", arg0)
+	ret0, _ := ret[0].(*opensearch.CcrStatusRuleResponse)
+	ret1, _ := ret[1].(error)
+	return ret0, ret1
+}
+
+// CrossClusterReplicationStatus indicates an expected call of CrossClusterReplicationStatus.
+func (mr *MockOpensearchHandlerMockRecorder) CrossClusterReplicationStatus(arg0 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CrossClusterReplicationStatus", reflect.TypeOf((*MockOpensearchHandler)(nil).CrossClusterReplicationStatus), arg0)
+}
+
+// CrossClusterReplicationStop mocks base method.
+func (m *MockOpensearchHandler) CrossClusterReplicationStop(arg0 string) error {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "CrossClusterReplicationStop", arg0)
+	ret0, _ := ret[0].(error)
+	return ret0
+}
+
+// CrossClusterReplicationStop indicates an expected call of CrossClusterReplicationStop.
+func (mr *MockOpensearchHandlerMockRecorder) CrossClusterReplicationStop(arg0 any) *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "CrossClusterReplicationStop", reflect.TypeOf((*MockOpensearchHandler)(nil).CrossClusterReplicationStop), arg0)
+}
+
 // DisableRoutingAllocation mocks base method.
 func (m *MockOpensearchHandler) DisableRoutingAllocation() error {
 	m.ctrl.T.Helper()
