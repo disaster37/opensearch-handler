@@ -12,7 +12,7 @@ func ManageCrossClusterReplication() {
 		expectedCcrRule         *opensearch.CcrRule
 		originalCcrRule         *opensearch.CcrRule
 		err                     error
-		ccrAutoFollowRuleStatus *opensearch.CcrFollowStatusState
+		ccrAutoFollowRuleStatus *opensearch.CcrAutoFollowStatus
 		expectedAutoFollowRule  *opensearch.CcrAutoFollowRule
 		originalAutoFollowRule  *opensearch.CcrAutoFollowRule
 	)

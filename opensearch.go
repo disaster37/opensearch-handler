@@ -102,7 +102,7 @@ type OpensearchHandler interface {
 	CrossClusterReplicationStatus(name string) (ccrStatus *opensearch.CcrStatusRuleResponse, err error)
 	CrossClusterReplicationDiff(actualObject, expectedObject, originalObject *opensearch.CcrRule) (patchResult *patch.PatchResult, err error)
 	CrossClusterReplicationAutoFollowCreate(ccrRule *opensearch.CcrAutoFollowRule) (err error)
-	CrossClusterReplicationAutoFollowStatus(name string) (ccrStatus *opensearch.CcrFollowStatusState, err error)
+	CrossClusterReplicationAutoFollowStatus(name string) (ccrStatus *opensearch.CcrAutoFollowStatus, err error)
 	CrossClusterReplicationAutoFollowDiff(actualObject, expectedObject, originalObject *opensearch.CcrAutoFollowRule) (patchResult *patch.PatchResult, err error)
 	CrossClusterReplicationAutoFollowDelete(name, leaderAlias string) (err error)
 

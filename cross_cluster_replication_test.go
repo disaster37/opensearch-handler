@@ -326,7 +326,7 @@ func (t *OpensearchHandlerTestSuite) TestCrossClusterReplicationAutoFollowStatus
 		NumFailedStartReplications:  0,
 		NumFailedLeaderCalls:        0,
 		FailedIndices:               []string{},
-		AutofollowStats: []opensearch.CcrFollowStatusState{
+		AutofollowStats: []opensearch.CcrAutoFollowStatus{
 			{
 				Name:                        "leader-rule",
 				Pattern:                     "leader-*",

@@ -229,10 +229,10 @@ func (mr *MockOpensearchHandlerMockRecorder) CrossClusterReplicationAutoFollowDi
 }
 
 // CrossClusterReplicationAutoFollowStatus mocks base method.
-func (m *MockOpensearchHandler) CrossClusterReplicationAutoFollowStatus(arg0 string) (*opensearch.CcrFollowStatusState, error) {
+func (m *MockOpensearchHandler) CrossClusterReplicationAutoFollowStatus(arg0 string) (*opensearch.CcrAutoFollowStatus, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "CrossClusterReplicationAutoFollowStatus", arg0)
-	ret0, _ := ret[0].(*opensearch.CcrFollowStatusState)
+	ret0, _ := ret[0].(*opensearch.CcrAutoFollowStatus)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }

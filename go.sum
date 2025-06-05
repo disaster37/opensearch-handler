@@ -7,10 +7,8 @@ github.com/disaster37/generic-objectmatcher v1.0.2 h1:jjuMd0E/Q3ZsDCqbpd3nLdSI7I
 github.com/disaster37/generic-objectmatcher v1.0.2/go.mod h1:OyAiqj4iYNgikhoOBBNphdiToKvHtfC7Ib6C4kfkm0w=
 github.com/disaster37/k8s-objectmatcher v1.8.8 h1:W6BN4Rkx2NCWOZaWGGEHjE3xaN6ur6mwL/V7wK9jf5Y=
 github.com/disaster37/k8s-objectmatcher v1.8.8/go.mod h1:2nRtPBxwgkwCBjerqlRF4oV9pqAVC1bxtl6Y4/iAt3U=
-github.com/disaster37/opensearch/v2 v2.0.13 h1:IpzTW+sEmsmhH5w/77POUpCldtqBbarKGRxKLB1UxUY=
-github.com/disaster37/opensearch/v2 v2.0.13/go.mod h1:WTMIZDf3Pr3dQw+XFLmy8Adh5RrCyBDhdWO2B7yoTq0=
-github.com/disaster37/opensearch/v2 v2.0.14 h1:V/pBx7nAvps7jrULQX2aKV9V7TJHZyltr/pdD/ajbg8=
-github.com/disaster37/opensearch/v2 v2.0.14/go.mod h1:WTMIZDf3Pr3dQw+XFLmy8Adh5RrCyBDhdWO2B7yoTq0=
+github.com/disaster37/opensearch/v2 v2.0.15 h1:8a2l5+H5o3qNkJHtSv3MhWnMeDfAiAiGhZiBUeGRDiY=
+github.com/disaster37/opensearch/v2 v2.0.15/go.mod h1:WTMIZDf3Pr3dQw+XFLmy8Adh5RrCyBDhdWO2B7yoTq0=
 github.com/elastic/go-ucfg v0.8.8 h1:54KIF/2zFKfl0MzsSOCGOsZ3O2bnjFQJ0nDJcLhviyk=
 github.com/elastic/go-ucfg v0.8.8/go.mod h1:4E8mPOLSUV9hQ7sgLEJ4bvt0KhMuDJa8joDT2QGAEKA=
 github.com/evanphx/json-patch v5.9.11+incompatible h1:ixHHqfcGvxhWkniF1tWxBHA0yb4Z+d1UQi45df52xW8=
@@ -19,8 +17,6 @@ github.com/fortytw2/leaktest v1.3.0 h1:u8491cBMTQ8ft8aeV+adlcytMZylmA5nnwwkRZjI8
 github.com/fortytw2/leaktest v1.3.0/go.mod h1:jDsjWgpAGjm2CA7WthBh/CdZYEPF31XHquHwclZch5g=
 github.com/fxamacker/cbor/v2 v2.8.0 h1:fFtUGXUzXPHTIUdne5+zzMPTfffl3RD5qYnkY40vtxU=
 github.com/fxamacker/cbor/v2 v2.8.0/go.mod h1:vM4b+DJCtHn+zz7h3FFp/hDAI9WNWCsZj23V5ytsSxQ=
-github.com/go-logr/logr v1.4.2 h1:6pFjapn8bFcIbiKo3XT4j/BhANplGihG6tvd+8rYgrY=
-github.com/go-logr/logr v1.4.2/go.mod h1:9T104GzyrTigFIr8wt5mBrctHMim0Nb2HLGrmQ40KvY=
 github.com/go-logr/logr v1.4.3 h1:CjnDlHq8ikf6E492q6eKboGOC0T8CDaOvkHCIg8idEI=
 github.com/go-logr/logr v1.4.3/go.mod h1:9T104GzyrTigFIr8wt5mBrctHMim0Nb2HLGrmQ40KvY=
 github.com/go-openapi/jsonpointer v0.21.1 h1:whnzv/pNXtK2FbX/W9yJfRmE2gsmkfahjMKB0fZvcic=

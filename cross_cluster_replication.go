@@ -134,7 +134,7 @@ func (h *OpensearchHandlerImpl) CrossClusterReplicationAutoFollowCreate(ccrRule 
 }
 
 // CrossClusterReplicationAutoFollowStatus permit to get CCR auto follow status
-func (h *OpensearchHandlerImpl) CrossClusterReplicationAutoFollowStatus(name string) (ccrStatus *opensearch.CcrFollowStatusState, err error) {
+func (h *OpensearchHandlerImpl) CrossClusterReplicationAutoFollowStatus(name string) (ccrStatus *opensearch.CcrAutoFollowStatus, err error) {
 	resp, err := h.Client().CcrAutoFollowStatus().Do(context.Background())
 	if err != nil {
 		return nil, errors.Wrapf(err, "Error when get CCR auto follow rule '%s'", name)
