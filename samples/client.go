@@ -5,8 +5,8 @@ import (
 	"log"
 	"net/http"
 
-	opensearchhandler "github.com/disaster37/opensearch-handler/v2"
-	"github.com/disaster37/opensearch/v2/config"
+	opensearchhandler "github.com/disaster37/opensearch-handler/v3"
+	"github.com/disaster37/opensearch/v3/config"
 	"github.com/sirupsen/logrus"
 	"k8s.io/utils/ptr"
 )

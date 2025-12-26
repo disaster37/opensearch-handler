@@ -5,8 +5,8 @@ import (
 
 	"emperror.dev/errors"
 	"github.com/disaster37/generic-objectmatcher/patch"
-	localpatch "github.com/disaster37/opensearch-handler/v2/patch"
-	"github.com/disaster37/opensearch/v2"
+	localpatch "github.com/disaster37/opensearch-handler/v3/patch"
+	"github.com/disaster37/opensearch/v3"
 	jsonIterator "github.com/json-iterator/go"
 )
 

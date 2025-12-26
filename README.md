@@ -80,7 +80,7 @@ You can look [sample](samples/cross_cluster_replication.go)
 
 PR are always welcome here!
 
-Please use the branch `release-branch.v2*` to gettig start.
+Please use the branch `release-branch.v3` to gettig start.
 
 Implement the code and test that prove is work as expected.
 

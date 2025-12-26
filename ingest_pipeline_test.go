@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/disaster37/opensearch/v2"
+	"github.com/disaster37/opensearch/v3"
 	"github.com/jarcoal/httpmock"
 	"github.com/stretchr/testify/assert"
 )

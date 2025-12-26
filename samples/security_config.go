@@ -3,7 +3,7 @@ package samples
 import (
 	"log"
 
-	"github.com/disaster37/opensearch/v2"
+	"github.com/disaster37/opensearch/v3"
 	"k8s.io/utils/ptr"
 )
 

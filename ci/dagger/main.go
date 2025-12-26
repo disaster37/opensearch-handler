@@ -27,7 +27,7 @@ const (
 	mockgenVersion          = "v0.3.0"
 	gitUsername      string = "ci"
 	gitEmail         string = "ci@localhost"
-	defaultGitBranch string = "release-branch.v2"
+	defaultGitBranch string = "release-branch.v3"
 )
 
 type OpensearchHandler struct {
@@ -198,6 +198,6 @@ func (h *OpensearchHandler) GenerateMock(
 ) *dagger.Directory {
 	return h.GolangModule.Container().WithExec(helper.ForgeScript(`
 go install go.uber.org/mock/mockgen@%s
-mockgen --build_flags=--mod=mod -destination=mocks/opensearch_handler.go -package=mocks github.com/disaster37/opensearch-handler/v2 OpensearchHandler
+mockgen --build_flags=--mod=mod -destination=mocks/opensearch_handler.go -package=mocks github.com/disaster37/opensearch-handler/v3 OpensearchHandler
 	`, mockgenVersion)).Directory(".")
 }

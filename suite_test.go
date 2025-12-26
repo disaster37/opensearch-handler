@@ -3,7 +3,7 @@ package opensearchhandler
 import (
 	"testing"
 
-	"github.com/disaster37/opensearch/v2"
+	"github.com/disaster37/opensearch/v3"
 	"github.com/jarcoal/httpmock"
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/suite"

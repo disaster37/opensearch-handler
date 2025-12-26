@@ -2,7 +2,7 @@
 
 PR are always welcome.
 
-Please start from branch `release-branch.v2`
+Please start from branch `release-branch.v3`
 
 ## CI
 

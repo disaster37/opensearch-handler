@@ -1,7 +1,7 @@
 package patch
 
 import (
-	"github.com/disaster37/opensearch/v2"
+	"github.com/disaster37/opensearch/v3"
 	json "github.com/json-iterator/go"
 )
 
